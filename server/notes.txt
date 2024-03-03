@@ -1,0 +1,41 @@
+/################# BACKEND #################\
+
+rodar: 
+
+npm run dev
+
+#1 Configuraçao Inicial
+
+COMMANDS USED:
+
+npm init -y
+npm install typescript --save-dev
+npm i express
+npm install @types/express --save-dev
+npx tsc --init
+npm i cors cookie-parser dotenv jsonwebtoken morgan nodemon bcrypt
+npm i ts-node-dev typescript --save-dev   //Serve pro TS entender nossos imports
+
+
+Agora vamos criar o script pra rodar nosso projeto:
+
+  "scripts": {
+    "dev": "ts-node-dev --transpile-only src/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+Agora testamos nossas rotas e td funciona
+
+
+#2 Tratando Erros da API
+
+Usar dep:
+
+npm i express-async-errors
+
+tratar no file server.ts os erros
+
+Instalaçao e configuraçao do cors como typagem TS:
+npm i @types/cors --save-dev
+
+
