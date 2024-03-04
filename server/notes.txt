@@ -39,3 +39,14 @@ Instalaçao e configuraçao do cors como typagem TS:
 npm i @types/cors --save-dev
 
 
+#3 Conectando ao DB
+
+Agora iremos conectar o postgreSQL + BEEKEEPER + PRISMA
+
+Rodamos o cmd no diretorio do project SERVER: 
+
+npm install prisma --save-dev
+npm i @prisma/client
+npx prisma init
+
+Mudar URL no file .env para a certa do postgreSQL e pronto conectou.
