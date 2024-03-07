@@ -77,3 +77,30 @@ Feito os modelos devemos rodar um comando para rodar as relacoes das tabelas:
 npx prisma migrate dev
 
 Nome das tables: create_table
+
+
+#5 Criando Estrutura
+
+Iremos criar nossa estrutura de controllers e services.
+
+Controller (Controlador):
+
+O que é: Imagine um controlador como um maestro em uma orquestra. Ele recebe pedidos (como uma música específica) e direciona os músicos para executar as ações necessárias.
+
+Exemplo: Em um jogo, o controlador seria como um jogador que pressiona os botões para fazer o personagem se mover ou pular.
+
+Services (Serviços):
+
+O que são: Os serviços são como assistentes que realizam tarefas específicas. Eles são como pessoas especializadas em fazer algo muito bem.
+
+Exemplo: Se pensarmos em uma biblioteca, o serviço seria como o bibliotecário que organiza os livros, ajuda as pessoas a encontrar o que precisam e verifica se os livros estão em bom estado.
+
+****EXEMPLOS REAIS****
+
+Como funcionam rotas, controllers e serviços?
+
+o user acessa a rota e a rota vai chamar o controller que ira fazer alguma acao. Dentro do controller basicamente pegamos algo recebido pelo front como o body, auth, token, query params...
+
+Dentro do controller chamamos um serviço para executar uma açao de acordo com oque pegamos do nosso front.
+
+O serviço que se ocupa de manipular o DB, desde criar, atualizar, editar e deletar dentro do DB e devolver a informaçao pro controller se deu certo ou nao e o controller devolve pro usuario o via res.json o esito da operaçao.
