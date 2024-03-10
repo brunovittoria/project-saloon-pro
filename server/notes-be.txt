@@ -130,6 +130,19 @@ Depois de fazer o hash da pwd e criar o user, iremos fazer um teste no nosso ins
 #7 LOGANDO USUARIOS NO DB
 
 Criamos un novo file que ira controlar quando o usuario se logar, AuthUserController.ts
-E o servico que ira tratar do login AuthUserService.ts
+E o servico que ira tratar do login no file AuthUserService.ts
+
+Agora devemos configurar nossa rota de login
 
 
+Devemos instalar os types do JWT:
+
+npm i --save-dev @types/jsonwebtoken
+
+Feito isso vamos no file .env e criamos nossa senha secreta que somente nos podemos ter acesso
+
+(TODA VEZ QUE MEXER NO FILE .ENV LEMBRAR DE PARA O PROJETO E RODAR-LO NOVAMENTE)
+
+Lembrar de mudar o strict true para FALSE para o TS ler as props globais dos files .env
+
+Apos criar o service , controller e route. Devemos testar nossa rota no thunderbolt
