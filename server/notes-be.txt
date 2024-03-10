@@ -4,7 +4,7 @@ rodar:
 
 npm run dev
 
-#1 Configuraçao Inicial
+#1 CONFIGURACAO INICIAL
 
 COMMANDS USED:
 
@@ -26,8 +26,9 @@ Agora vamos criar o script pra rodar nosso projeto:
 
 Agora testamos nossas rotas e td funciona
 
+##########################################
 
-#2 Tratando Erros da API
+#2 TRATANDO ERROS DA API
 
 Usar dep:
 
@@ -38,8 +39,9 @@ tratar no file server.ts os erros
 Instalaçao e configuraçao do cors como typagem TS:
 npm i @types/cors --save-dev
 
+##########################################
 
-#3 Conectando ao DB
+#3 CONECTANDO AO DB
 
 Agora iremos conectar o postgreSQL + BEEKEEPER + PRISMA
 
@@ -51,7 +53,9 @@ npx prisma init
 
 Mudar URL no file .env para a certa do postgreSQL e pronto conectou.
 
-#4 Criando Tabelas
+##########################################
+
+#4 CRIANDO TABELAS
 
 Vamos configurar o prisma, entao vamos criar uma pasta com nome prisma dentro do src
 
@@ -78,8 +82,9 @@ npx prisma migrate dev
 
 Nome das tables: create_table
 
+##########################################
 
-#5 Criando Estrutura
+#5 CRIANDO ESTRUTURA
 
 Iremos criar nossa estrutura de controllers e services.
 
@@ -104,3 +109,27 @@ o user acessa a rota e a rota vai chamar o controller que ira fazer alguma acao.
 Dentro do controller chamamos um serviço para executar uma açao de acordo com oque pegamos do nosso front.
 
 O serviço que se ocupa de manipular o DB, desde criar, atualizar, editar e deletar dentro do DB e devolver a informaçao pro controller se deu certo ou nao e o controller devolve pro usuario o via res.json o esito da operaçao.
+
+##########################################
+
+#6 CADASTRANDO USUARIOS NO DB
+
+Agora iremos cadastrar os usuarios quando eles fizerem o registro em nosso form la no nosso DB
+
+Para isso iremos chamar o nosso prisma client no services de USER (Que é ele que recebera os dados do controller e ira executar alguma açao.) e criar nossas verificacoes para criar o user.
+
+Depois devemos instalar o bcrypt para encryptar a password.
+
+npm i bcrypt
+npm i --save-dev @types/bcrypt
+
+Depois de fazer o hash da pwd e criar o user, iremos fazer um teste no nosso insomnia.
+
+##########################################
+
+#7 LOGANDO USUARIOS NO DB
+
+Criamos un novo file que ira controlar quando o usuario se logar, AuthUserController.ts
+E o servico que ira tratar do login AuthUserService.ts
+
+
