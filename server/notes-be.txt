@@ -146,3 +146,15 @@ Feito isso vamos no file .env e criamos nossa senha secreta que somente nos pode
 Lembrar de mudar o strict true para FALSE para o TS ler as props globais dos files .env
 
 Apos criar o service , controller e route. Devemos testar nossa rota no thunderbolt
+
+##########################################
+
+#8 CRIANDO MIDDLEWARES
+
+Aqui criamos o service, controller e rota para pegar detalhes do usuario.
+
+Porem antes de fazer o GET dessas informaçoes sensiveis do usuario, queremos criar um "validador/middleware" antes de chegar na rota para saber se o token é compativel com o usuario.
+
+EXEMPLO:
+
+Em nosso app vamos supor que um hacker tente pegar a rota e acessar-la, ele pode fazer isso caso a rota seja publica, caso seja privada sera impossivel, portanto vamos aprender a "Verificar users" antes deles puderem acessar a rota.
