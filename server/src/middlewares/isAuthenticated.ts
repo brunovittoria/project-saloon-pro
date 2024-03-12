@@ -23,6 +23,7 @@ export function isAuthenticated(request: Request, response: Response, next: Next
         )   as Payload
 
         console.log(sub)
+        request.user_id = sub             //Dessa forma ira receber o ID do user logado. (Aqui criamos um type especifico pra esse dado)
         return next()                     //Caso o token esteja correto ele passou pelo nosso middleware
 
     } catch(err){

@@ -164,3 +164,8 @@ Em nosso app vamos supor que um hacker tente pegar a rota e acessar-la, ele pode
 Criamos nosso primeiro middleware (isAuthenticated.ts)
 
 Na criaçao é importante testar no thunderbolt pra saber se esta caindo nos condicionais, testamos nosso token com o bearer inserindo o token gerado no login e colocamos o prefixo "Bearer"
+
+Criamos um file "types" que contem a tipagem sobreescrevendo a tipagem do express.
+
+Devemos descomentar o typeRoots do tsconfig.json e colocar o path do nosso file @types pra que o typescript entenda nossa declaraçao do FILE.
+
