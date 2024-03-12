@@ -169,3 +169,8 @@ Criamos um file "types" que contem a tipagem sobreescrevendo a tipagem do expres
 
 Devemos descomentar o typeRoots do tsconfig.json e colocar o path do nosso file @types pra que o typescript entenda nossa declaraçao do FILE.
 
+##########################################
+
+#9 ROTAS USER DETAILS
+
+Aqui criamos a nossa rota onde ira pegar todos os detalhes do usuario
