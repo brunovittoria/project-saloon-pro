@@ -4,6 +4,7 @@ import { AuthUserController }        from '../controllers/user/AuthUserControlle
 import { DetailUserController } from '../controllers/user/DetailUserController'
 
 import { isAuthenticated } from '../middlewares/isAuthenticated'
+import { UpdateUserController } from '../controllers/user/UpdateUserController'
 
 const router = Router()
 
@@ -12,7 +13,7 @@ const router = Router()
 router.post('/users',   new CreateUserController().handle)  //a lógica para criar usuários está encapsulada no método handle do CreateUserController. Provavelmente, esse método irá extrair os dados da requisição (por exemplo, nome, e-mail, senha), criar um novo usuário e responder de volta ao cliente com os resultados da operação.
 router.post('/session', new AuthUserController().handle)    //Com essa rota ira fazer o login
 router.get('/me', isAuthenticated, new DetailUserController().handle)  //Com essa rota listamos DETALHES do USERS
-
+router.put('/users', isAuthenticated, new UpdateUserController().handle) //Rota para editar nossas info de USERS
 
 
 

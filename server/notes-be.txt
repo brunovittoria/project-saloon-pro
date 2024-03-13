@@ -87,6 +87,7 @@ Nome das tables: create_table
 #5 CRIANDO ESTRUTURA
 
 Iremos criar nossa estrutura de controllers e services.
+Lembre-se sempre de antes de construir alguma funcionalidade, olhar o figma file para visualizar quais funcionalidades o app pode precisar.
 
 Controller (Controlador):
 
@@ -174,3 +175,20 @@ Devemos descomentar o typeRoots do tsconfig.json e colocar o path do nosso file 
 #9 ROTAS USER DETAILS
 
 Aqui criamos a nossa rota onde ira pegar todos os detalhes do usuario
+
+
+##########################################
+
+#10 ROTA DE UPDATE USER
+
+Olhando o figma file podemos ver que temos uma page "Minha Conta" que o usuario pode mudar suas informaçoes de contato.
+
+Aqui criamos uma rota onde iremos fazer uma atualizacao dos dados do usuario.
+
+-Primeiro começamos criando o service: UpdateUserService.ts
+
+Criado esse file devemos criar o controller: UpdateUserController.ts
+
+Por fim criamos nossa rota: router.put('/users', isAuthenticated, new UpdateUserController().handle)
+
+
