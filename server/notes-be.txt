@@ -192,3 +192,11 @@ Criado esse file devemos criar o controller: UpdateUserController.ts
 Por fim criamos nossa rota: router.put('/users', isAuthenticated, new UpdateUserController().handle)
 
 
+##########################################
+
+#11 CRIANDO MODELOS DE SERVICOS
+
+Olhando o figma file podemos ver que listamos os modelos de cortes em um frame, cadastramos os cortes e temos limites de cadastros de cortes para users FREE.
+
+Sabendo desses requisitos vamos ao codigo e criamos a pasta "works" no services que iremos criar nosso primeiro servico para criar os servicos/cortes do app.
+

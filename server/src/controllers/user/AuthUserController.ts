@@ -12,6 +12,8 @@ class AuthUserController{   //Aqui basicamente pegamos dados do nosso req.body e
             password
         })
 
+        return response.json(session)
+
     }
 }
 
