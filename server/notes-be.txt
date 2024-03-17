@@ -26,6 +26,7 @@ Agora vamos criar o script pra rodar nosso projeto:
 
 Agora testamos nossas rotas e td funciona
 
+
 ##########################################
 
 #2 TRATANDO ERROS DA API
@@ -38,6 +39,7 @@ tratar no file server.ts os erros
 
 Instalaçao e configuraçao do cors como typagem TS:
 npm i @types/cors --save-dev
+
 
 ##########################################
 
@@ -52,6 +54,7 @@ npm i @prisma/client
 npx prisma init
 
 Mudar URL no file .env para a certa do postgreSQL e pronto conectou.
+
 
 ##########################################
 
@@ -82,6 +85,7 @@ npx prisma migrate dev
 
 Nome das tables: create_table
 
+
 ##########################################
 
 #5 CRIANDO ESTRUTURA
@@ -111,6 +115,7 @@ Dentro do controller chamamos um serviço para executar uma açao de acordo com 
 
 O serviço que se ocupa de manipular o DB, desde criar, atualizar, editar e deletar dentro do DB e devolver a informaçao pro controller se deu certo ou nao e o controller devolve pro usuario o via res.json o esito da operaçao.
 
+
 ##########################################
 
 #6 CADASTRANDO USUARIOS NO DB
@@ -125,6 +130,7 @@ npm i bcrypt
 npm i --save-dev @types/bcrypt
 
 Depois de fazer o hash da pwd e criar o user, iremos fazer um teste no nosso insomnia.
+
 
 ##########################################
 
@@ -148,6 +154,7 @@ Lembrar de mudar o strict true para FALSE para o TS ler as props globais dos fil
 
 Apos criar o service , controller e route. Devemos testar nossa rota no thunderbolt
 
+
 ##########################################
 
 #8 CRIANDO MIDDLEWARES
@@ -169,6 +176,7 @@ Na criaçao é importante testar no thunderbolt pra saber se esta caindo nos con
 Criamos um file "types" que contem a tipagem sobreescrevendo a tipagem do express.
 
 Devemos descomentar o typeRoots do tsconfig.json e colocar o path do nosso file @types pra que o typescript entenda nossa declaraçao do FILE.
+
 
 ##########################################
 
@@ -200,9 +208,10 @@ Olhando o figma file podemos ver que listamos os modelos de cortes em um frame, 
 
 Sabendo desses requisitos vamos ao codigo e criamos a pasta "works" no services que iremos criar nosso primeiro servico para criar os servicos/cortes do app.
 
+
 ##########################################
 
-#12 LISTANDO CORTES
+#12 LISTANDO SERVICOS
 
 Olhando o figma file podemos ver que listamos os modelos de cortes em um frame.
 
@@ -213,4 +222,24 @@ Tendo construido nosso service criamos o controller: ListWorksController
 Agora criamos a nossa rota para a listagem dos works.
 
 Agora testamos as rotas pra ver se ta tudo certo.
+
+
+##########################################
+
+#12 ATUALIZAR SERVICOS
+
+Olhando o figma file podemos ver que editamos os modelos de cortes em um frame, lembrando que essa funcionalidade de editar é somente pra premium.
+
+Criamos o service: UpdateWorksService.ts
+
+E agora criamos o controller: UpdateWorksController.ts
+
+Criamos nossa rota de update do works
+
+E por ultimo agora vamos testar a rota
+
+
+##########################################
+
+#13
 

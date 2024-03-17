@@ -8,6 +8,7 @@ import { CreateWorksController }        from '../controllers/works/CreateWorksCo
 
 import { isAuthenticated }              from '../middlewares/isAuthenticated'
 import { ListWorksController } from '../controllers/works/ListWorksController'
+import { UpdateWorksController } from '../controllers/works/UpdateWorksController'
 
 const router = Router()
 
@@ -21,6 +22,7 @@ router.put('/users', isAuthenticated, new UpdateUserController().handle) //Rota 
 // ---- ROTAS SERVICOS ---- //
 router.post('/service', isAuthenticated, new CreateWorksController().handle) //Rota para criar serviços
 router.get('/services', isAuthenticated, new ListWorksController().handle) //Rota para Lista serviços
+router.put('/service', isAuthenticated, new UpdateWorksController().handle) //Rota para lidar com a modificaçao dos serviços
 
 
 export { router }
