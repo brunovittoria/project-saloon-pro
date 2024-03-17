@@ -7,6 +7,7 @@ import { UpdateUserController }         from '../controllers/user/UpdateUserCont
 import { CreateWorksController }        from '../controllers/works/CreateWorksController'
 
 import { isAuthenticated }              from '../middlewares/isAuthenticated'
+import { ListWorksController } from '../controllers/works/ListWorksController'
 
 const router = Router()
 
@@ -18,7 +19,8 @@ router.get('/me', isAuthenticated, new DetailUserController().handle)  //Com ess
 router.put('/users', isAuthenticated, new UpdateUserController().handle) //Rota para editar nossas info de USERS
 
 // ---- ROTAS SERVICOS ---- //
-router.post('/service', isAuthenticated, new CreateWorksController().handle)
+router.post('/service', isAuthenticated, new CreateWorksController().handle) //Rota para criar serviços
+router.get('/services', isAuthenticated, new ListWorksController().handle) //Rota para Lista serviços
 
 
 export { router }

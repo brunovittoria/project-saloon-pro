@@ -200,3 +200,17 @@ Olhando o figma file podemos ver que listamos os modelos de cortes em um frame, 
 
 Sabendo desses requisitos vamos ao codigo e criamos a pasta "works" no services que iremos criar nosso primeiro servico para criar os servicos/cortes do app.
 
+##########################################
+
+#12 LISTANDO CORTES
+
+Olhando o figma file podemos ver que listamos os modelos de cortes em um frame.
+
+Sabendo desses requisitos vamos ao codigo e criamos dentro da pasta "works" no services o file: ListWorksService.ts
+
+Tendo construido nosso service criamos o controller: ListWorksController
+
+Agora criamos a nossa rota para a listagem dos works.
+
+Agora testamos as rotas pra ver se ta tudo certo.
+
