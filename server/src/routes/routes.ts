@@ -7,8 +7,9 @@ import { UpdateUserController }         from '../controllers/user/UpdateUserCont
 import { CreateWorksController }        from '../controllers/works/CreateWorksController'
 
 import { isAuthenticated }              from '../middlewares/isAuthenticated'
-import { ListWorksController } from '../controllers/works/ListWorksController'
-import { UpdateWorksController } from '../controllers/works/UpdateWorksController'
+import { ListWorksController }          from '../controllers/works/ListWorksController'
+import { UpdateWorksController }        from '../controllers/works/UpdateWorksController'
+import { CheckSubsController }          from '../controllers/works/CheckSubsController'
 
 const router = Router()
 
@@ -23,6 +24,7 @@ router.put('/users', isAuthenticated, new UpdateUserController().handle) //Rota 
 router.post('/service', isAuthenticated, new CreateWorksController().handle) //Rota para criar serviços
 router.get('/services', isAuthenticated, new ListWorksController().handle) //Rota para Lista serviços
 router.put('/service', isAuthenticated, new UpdateWorksController().handle) //Rota para lidar com a modificaçao dos serviços
+router.get('/haircut/check', isAuthenticated, new CheckSubsController().handle) //Rota onde faz a checagem da assinatura
 
 
 export { router }

@@ -236,10 +236,18 @@ E agora criamos o controller: UpdateWorksController.ts
 
 Criamos nossa rota de update do works
 
-E por ultimo agora vamos testar a rota
+E por ultimo agora vamos testar a rota no thunderbolt
 
 
 ##########################################
 
-#13
+#13 CHECK SUBSCRIPTION
+
+Iremos criar uma rota para checar se o user tem uma SUBSCRIPTION ativa ou nao.
+
+Começamos criando o file CheckSubsService.ts
+
+E agora criamos o controller: CheckSubsController.ts
+
+
 
