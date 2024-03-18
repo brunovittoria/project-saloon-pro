@@ -11,6 +11,7 @@ import { ListWorksController }          from '../controllers/works/ListWorksCont
 import { UpdateWorksController }        from '../controllers/works/UpdateWorksController'
 import { CheckSubsController }          from '../controllers/works/CheckSubsController'
 import { CountWorksController }         from '../controllers/works/CountWorksController'
+import { DetailWorkController }         from '../controllers/works/DetailWorkController'
 
 const router = Router()
 
@@ -27,6 +28,6 @@ router.get('/services', isAuthenticated, new ListWorksController().handle)      
 router.put('/service', isAuthenticated, new UpdateWorksController().handle)         //Rota para lidar com a modificaçao dos serviços
 router.get('/service/check', isAuthenticated, new CheckSubsController().handle)     //Rota onde faz a checagem da assinatura
 router.get('/service/count', isAuthenticated, new CountWorksController().handle)    //Rota onde contamos qtd. de serviços
-
+router.get('/service/detail', isAuthenticated, new DetailWorkController().handle)   //Rota para detalhe de um serviço em especifico
 
 export { router }
