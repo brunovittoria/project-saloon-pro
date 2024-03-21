@@ -274,4 +274,28 @@ Criamos a Route para os detalhes
 
 Fazemos o testing
 
+##########################################
 
+#15 CADASTRAR NOVO SERVICO
+
+No nosso FIGMA FILE podemos ver que temos um frame onde cadastramos um novo serviço, iremos criar essa funcionalidade agora...
+
+Criamos em nosso service a pasta schedule e o file: NewScheduleService.ts
+
+Criamos o nosso controller NewScheduleController.ts
+
+Criamos nossa rota schedule
+
+Por final testamos
+
+##########################################
+
+#16 LISTANDO AGENDAMENTOS 
+
+No nosso FIGMA FILE podemos ver que temos um frame onde listamos os clientes do nosso agendamento, iremos criar essa funcionalidade agora...
+
+Criamos em nosso service a dentro da pasta schedule o file: ListScheduleService.ts
+
+Criamos o controller ListScheduleController.ts
+
+ 

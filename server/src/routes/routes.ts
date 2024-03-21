@@ -12,6 +12,7 @@ import { UpdateWorksController }        from '../controllers/works/UpdateWorksCo
 import { CheckSubsController }          from '../controllers/works/CheckSubsController'
 import { CountWorksController }         from '../controllers/works/CountWorksController'
 import { DetailWorkController }         from '../controllers/works/DetailWorkController'
+import { NewScheduleController }        from '../controllers/schedule/NewScheduleController'
 
 const router = Router()
 
@@ -29,5 +30,8 @@ router.put('/service', isAuthenticated, new UpdateWorksController().handle)     
 router.get('/service/check', isAuthenticated, new CheckSubsController().handle)     //Rota onde faz a checagem da assinatura
 router.get('/service/count', isAuthenticated, new CountWorksController().handle)    //Rota onde contamos qtd. de serviços
 router.get('/service/detail', isAuthenticated, new DetailWorkController().handle)   //Rota para detalhe de um serviço em especifico
+
+// ---- ROTAS SCHEDULE SERVICOS ---- //
+router.post('/schedule', isAuthenticated, new NewScheduleController().handle)       //Rota para cadastrar novo agendamento
 
 export { router }
