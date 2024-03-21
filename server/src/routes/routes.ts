@@ -13,6 +13,7 @@ import { CheckSubsController }          from '../controllers/works/CheckSubsCont
 import { CountWorksController }         from '../controllers/works/CountWorksController'
 import { DetailWorkController }         from '../controllers/works/DetailWorkController'
 import { NewScheduleController }        from '../controllers/schedule/NewScheduleController'
+import { ListScheduleController }       from '../controllers/schedule/ListScheduleController'
 
 const router = Router()
 
@@ -33,5 +34,6 @@ router.get('/service/detail', isAuthenticated, new DetailWorkController().handle
 
 // ---- ROTAS SCHEDULE SERVICOS ---- //
 router.post('/schedule', isAuthenticated, new NewScheduleController().handle)       //Rota para cadastrar novo agendamento
+router.get('/schedule', isAuthenticated, new ListScheduleController().handle)       //Rota para listar todos os agendamentos
 
 export { router }

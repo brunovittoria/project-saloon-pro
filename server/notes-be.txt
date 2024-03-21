@@ -298,4 +298,8 @@ Criamos em nosso service a dentro da pasta schedule o file: ListScheduleService.
 
 Criamos o controller ListScheduleController.ts
 
+Criamos a rota para listar todos os agendamentos
+
+Agora vamos testar
+
  
