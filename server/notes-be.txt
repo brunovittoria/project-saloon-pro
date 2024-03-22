@@ -302,4 +302,16 @@ Criamos a rota para listar todos os agendamentos
 
 Agora vamos testar
 
- 
+##########################################
+
+#17 FINALIZANDO/DELETANDO SERVICO
+
+Em nossos frames do FIGMA podemos ver que temos uma tela onde podemos "Finalizar um serviço apos ele ser completado"
+
+Criamos o service: FinishScheduleService.ts
+
+Criamos o controler: FinishScheduleController.ts
+
+Criamos nossa rota
+
+E por final testamos
