@@ -1,0 +1,26 @@
+##########################################
+
+#INICIO DO FRONTEND
+
+RODAR NO FRONT: npm run dev
+
+Iremos começar a criar nosso front usando next com o comando:
+
+npx create-next-app@latest
+
+
+Damos um nome para o nosso projeto: client
+
+"Quando criar o App com Next vai pergutnar se deseja usar app router ai só respondeer NO"
+
+Agora eliminamos a pasta styles e api
+
+Apagamos tuto em nosso index.tsx
+
+eliminamos o file _document e criamos um do 0
+
+Agora importamos nossas fontes do google fontes
+
+Criamos Heads dentro do Index.tsx
+
+Importamos nossa logo dentro da pasta images
