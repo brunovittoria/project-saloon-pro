@@ -1,6 +1,6 @@
 ##########################################
 
-#INICIO DO FRONTEND
+#1 INICIO DO FRONTEND
 
 RODAR NO FRONT: npm run dev
 
@@ -24,3 +24,13 @@ Agora importamos nossas fontes do google fontes
 Criamos Heads dentro do Index.tsx
 
 Importamos nossa logo dentro da pasta images
+
+
+
+##########################################
+
+#2 Instalando CHAKRA-UI
+
+Vamos ate esse link para instalaçao no NEXT: https://chakra-ui.com/getting-started/nextjs-pages-guide
+
+Apos instalacao vamos configurar nosso provider do CHAKRA, basta envolver nosso _app.tsx dentro do chackra provider
