@@ -2,6 +2,8 @@
 
 #1 INICIO DO FRONTEND
 
+FIGMA FILE: https://www.figma.com/file/4weD0kpvvxxM6roojAzfPh/Saloon-Pro?type=design&node-id=0%3A1&mode=design&t=Sw48ZVKatGXrUH2g-1
+
 RODAR NO FRONT: npm run dev
 
 Iremos começar a criar nosso front usando next com o comando:
@@ -29,8 +31,20 @@ Importamos nossa logo dentro da pasta images
 
 ##########################################
 
-#2 Instalando CHAKRA-UI
+#2 Instalando e Configurando CHAKRA-UI
 
 Vamos ate esse link para instalaçao no NEXT: https://chakra-ui.com/getting-started/nextjs-pages-guide
 
 Apos instalacao vamos configurar nosso provider do CHAKRA, basta envolver nosso _app.tsx dentro do chackra provider
+
+
+##########################################
+
+#2 Paginas de Login
+
+Criamos dentro do nosso pages um folder "Login" e criamos nosso componente
+
+Devemos seguir a estrutura do nosso FIGMA FILE
+
+Para a construçao dos componentes é importante lermos a documentaçao do CHAKRA UI
+
