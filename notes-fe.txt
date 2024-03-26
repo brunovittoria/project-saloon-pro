@@ -48,3 +48,9 @@ Devemos seguir a estrutura do nosso FIGMA FILE
 
 Para a construçao dos componentes é importante lermos a documentaçao do CHAKRA UI
 
+
+##########################################
+
+#2 Paginas de Cadastro
+
+Criamos uma pasta Register e basicamente copiamos nossa pagina de LOGIN

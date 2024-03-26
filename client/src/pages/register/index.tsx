@@ -5,19 +5,22 @@ import Logo from '../../../public/images/logo.svg'
 import Link from "next/link"
 import { useState, useEffect } from "react"
 
-export default function Login(){
+export default function Register(){
 
-    const [email, setEmail]        = useState('')
-    const [password, setPassword]  = useState('')
+    const [email, setEmail]       = useState('')
+    const [password, setPassword] = useState('')
+    const [company, setCompany]   = useState('')
 
-    function handleLogin(){
-        console.log(email, password)
+    function handleRegister(){
+        console.log(email)
+        console.log(password)
+        console.log(company)
     }
 
     return(
         <>
             <Head>
-                <title>SaloonPRO - Il tuo sistema completo</title>   {/*Aqui usamos o titulo para melhorar nosso SEO*/}
+                <title>SaloonPRO - Crea il tuo account in SaloonPRO</title>   {/*Aqui usamos o titulo para melhorar nosso SEO*/}
             </Head>
             <Flex background="barber.900" height="100vh" alignItems="center" justifyContent="center"> {/*Aqui basicamente importamos uma DIV que ja vem com o display flex*/}
                 
@@ -31,6 +34,17 @@ export default function Login(){
                             alt="Logo Saloon PRO"
                         />
                     </Center>
+
+                    <Input
+                        background="barber.400"
+                        variant="filled"
+                        size="lg"
+                        placeholder="Nome del tuo saloon"
+                        type="text"
+                        mb={3}
+                        value={company}
+                        onChange={(e) => setCompany(e.target.value)}
+                    />
 
                     <Input
                         background="barber.400"
@@ -59,14 +73,14 @@ export default function Login(){
                         mb={6}
                         color="gray.100"
                         _hover={{ bg: "#ffb13e"}}
-                        onClick={handleLogin}
+                        onClick={handleRegister}
                     >
-                        Accedere
+                        Registrati
                     </Button>
 
                     <Center mt={2}>
-                        <Link href="/register">
-                            <Text cursor="pointer" color="#FFF">Non sei ancora registrato? <strong>Registrati</strong></Text>
+                        <Link href="/login">
+                            <Text cursor="pointer" color="#FFF">Sei già registrato? <strong>Accedi</strong></Text>
                         </Link>
                     </Center>
                 </Flex>
