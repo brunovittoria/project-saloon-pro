@@ -40,7 +40,7 @@ Apos instalacao vamos configurar nosso provider do CHAKRA, basta envolver nosso 
 
 ##########################################
 
-#2 Paginas de Login
+#3 Paginas de Login
 
 Criamos dentro do nosso pages um folder "Login" e criamos nosso componente
 
@@ -51,6 +51,50 @@ Para a construçao dos componentes é importante lermos a documentaçao do CHAKR
 
 ##########################################
 
-#2 Paginas de Cadastro
+#4 Paginas de Cadastro
 
 Criamos uma pasta Register e basicamente copiamos nossa pagina de LOGIN
+
+
+##########################################
+
+#5 Adicionado o concurrently
+
+So seguir um tutorial do YT
+
+
+##########################################
+
+#6 CONTEXT API
+
+Iremos globalizar nossas props para assim ter estado em toda nossa aplicaçao.
+
+Iremos criar um contexto geral para nao acarretar em prop drilling.
+
+Criamos uma pasta: context
+
+Dentro dela criamos o nosso context para auth: AuthContext.tsx
+
+Devemos mudar em nosso tsconfig.json (Em nosso FE) para nao originas um erro caso um valor seja inicializado como UNDEFINED
+
+{
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,  //AQUI !!!
+
+Feita essa mudança devemos parar de rodar o projeto e rodar denovo.
+
+Agora que criamos nosso Context para definir um contexto de autenticação (AuthContext) que fornece informações sobre o usuário autenticado e seu status de autenticação para os componentes filhos. Ele utiliza o useState do React para armazenar as informações do usuário e determina se o usuário está autenticado com base nessas informações.
+
+Iremos utilizar de fato nosso contexto em nossa aplicaçao, vamos envolver nossas paginas em nosso context.
+Vamos ate o _app.tsx e adicionamos nosso provider.
+
+Agora que passamos o PROVIDER para nosso _app.tsx devemos testar-lo
+
+Vamos criar uma funçao de LOGIN so pra ver se os dados sao passados pro FE.
+
+//*Algo interessante é que podemos criar funcoes em nosso CONTEXT API e passar como metodos para nosso componentes*\\
+
+
