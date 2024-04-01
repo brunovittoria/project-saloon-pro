@@ -98,3 +98,24 @@ Vamos criar uma funçao de LOGIN so pra ver se os dados sao passados pro FE.
 //*Algo interessante é que podemos criar funcoes em nosso CONTEXT API e passar como metodos para nosso componentes*\\
 
 
+##########################################
+
+#7 Configurando API
+
+Iremos instalar axios + nookies + jwt-decode
+
+npm i axios nookies jwt-decode
+
+Criamos uma variavel de ambiente para nossa URL do APP
+
+Criamos um file SERVICES no nosso FE que serve basicamente configuramos nossa base URL para as requisicoes e suas devidas tratativas de erros.
+
+Criamos um file dentro da pasta services onde armazena possiveis erros e suas mensagens.
+
+Agora passamos nosso service para nosso contexto
+
+Criamos uma funçao de LOGOUT no AuthContext e passamos essa funçao para nosso api.ts em um caso de que o user deva ser jogado fora do app
+
+Agora criamos um file apiClient, para quando iremos consumir nossa api do lado do client
+
+
