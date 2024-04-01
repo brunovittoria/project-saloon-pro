@@ -119,3 +119,12 @@ Criamos uma funçao de LOGOUT no AuthContext e passamos essa funçao para nosso 
 Agora criamos um file apiClient, para quando iremos consumir nossa api do lado do client
 
 
+##########################################
+
+#8 CRIANDO FUNCIONALIDADE LOGIN
+
+Apos configurar a parte inicial de nossa API vamos criar a funcionalidade de login
+
+Primeiramente em nosso context chamamos no api.ts
+
+e atualizamos nossa funçao de SignIn no AuthContext.ts
