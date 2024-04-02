@@ -139,3 +139,14 @@ Primeiramente vamos ate nosso CONTEXT e criamos nossa interface e funçao de reg
 
 Agora que criamos nossa funçao de logout e register e passamos para nosso contexto, vamos importar-lo e usar la em nosso componente REGISTER.
 
+
+##########################################
+
+#10 PROTEGENDO ROTAS
+
+Iremos criar verificaçoes e dar acesso a rotas para usuarios que estao logados e restringir acesso para os que nao estao logados
+
+Dentro a pasta utils criamos a pasta utils e o file canSSRAuth.ts
+
+
+PAREI NO 03:08
