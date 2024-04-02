@@ -9,6 +9,8 @@ interface AuthContextData {
     user:   UserProps           // Dados do usuário autenticado
     isAuthenticated: boolean    // Indica se o usuário está autenticado ou não
     signIn: (credentials: SignInProps) => Promise<void>;
+    signUp: (credentials: SignUpProps) => Promise<void>;
+    logoutUser: () => Promise<void>;
 }
 
 // Definindo a estrutura de dados para o usuário
@@ -31,6 +33,12 @@ type AuthProviderProps = {
 }
 
 interface SignInProps {
+    email: string
+    password: string
+}
+
+interface SignUpProps {
+    company: string
     email: string
     password: string
 }
@@ -83,9 +91,29 @@ export function AuthProvider({ children }: AuthProviderProps){
         }
     }
 
+    async function signUp({ company, email, password}: SignUpProps){
+        try{
+            const response = await api.post('/users', {company, email, password}) //Simplesmente passamos os dados para o nosso backend tratar 
+
+            Router.push('/login')                   //Caso tenha criado com sucesso o user mandamos ele pro login, para ele se logar
+        } catch(err){
+            console.log(err)
+        }
+    }
+
+    async function logoutUser(){            //Esta funçao ira deslogar e destruir o token do user
+        try{
+            destroyCookie(null, '@saloon.token', { path: '/' })
+            Router.push('/login')
+            setUser(null)           //Retiramos tudo que tinha na useState do user e limpamos para null
+        }catch(err){
+            console.log("Logout error", err)
+        }
+    }
+
     return(
         // Fornecendo o contexto de autenticação para os elementos filhos(Toda a nossa APLICACAO)
-        <AuthContext.Provider value={{ user, isAuthenticated, signIn}}> 
+        <AuthContext.Provider value={{ user, isAuthenticated, signIn, signUp, logoutUser}}> 
             {children}
         </AuthContext.Provider>
     )

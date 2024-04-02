@@ -128,3 +128,14 @@ Apos configurar a parte inicial de nossa API vamos criar a funcionalidade de log
 Primeiramente em nosso context chamamos no api.ts
 
 e atualizamos nossa funçao de SignIn no AuthContext.ts
+
+##########################################
+
+#9 CRIANDO FUNCIONALIDADE REGISTER
+
+Agora iremos criar a funcionalidade para registrar em nossa API.
+
+Primeiramente vamos ate nosso CONTEXT e criamos nossa interface e funçao de register e logout.
+
+Agora que criamos nossa funçao de logout e register e passamos para nosso contexto, vamos importar-lo e usar la em nosso componente REGISTER.
+

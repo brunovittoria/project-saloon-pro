@@ -3,18 +3,23 @@ import { Flex, Text, Center, Input, Button } from '@chakra-ui/react'
 import Image from "next/image"
 import Logo from '../../../public/images/logo.svg'
 import Link from "next/link"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
+
+import { AuthContext } from '../../context/AuthContext'
 
 export default function Register(){
+    const { signUp } = useContext(AuthContext)
 
     const [email, setEmail]       = useState('')
     const [password, setPassword] = useState('')
     const [company, setCompany]   = useState('')
 
-    function handleRegister(){
-        console.log(email)
-        console.log(password)
-        console.log(company)
+    async function handleRegister(){
+        if(company === '' && email === '' && password === '' ){ //Se nao estiver preenchido algum campo, retorna imediatamente.
+            return
+        }
+        
+        await signUp({company, email, password})        //Simplesmente passamos as infos do USESTATE ao CONTEXT e o CONTEXT manda pro BE
     }
 
     return(
