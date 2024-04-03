@@ -149,3 +149,16 @@ Iremos criar verificaçoes e dar acesso a rotas para usuarios que estao logados 
 Dentro a pasta utils criamos a pasta utils e o file canSSRAuth.ts
 
 Agora que criamos nosso Utils de proteçao de rotas iremos utilizar-lo em paginas onde queremos que somente users autenticados entrem. Vamos importar no Dashboard
+
+
+##########################################
+
+#11 ROTAS LOGADAS
+
+Caso o usuario esteja logado, ou seja que seria um GUEST ele nao ira ver certas rotas, como a de login e algumas outras.
+
+Dentro de UTILS criamos o file canSSRGuest.ts
+
+Apos criado passamos esse utils para a pagina de LOGIN
+
+Devemos passar lo tambem para a rota register, pois nao queremos que um usuario logado possa ver a rota REGISTER
