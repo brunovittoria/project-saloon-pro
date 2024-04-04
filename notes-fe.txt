@@ -170,3 +170,16 @@ Devemos passar lo tambem para a rota register, pois nao queremos que um usuario 
 Iremos em nosso context passar as propriedades do token em nosso useEffect para que o usuario permaneca logado em nossa app e tenha as suas propriedades acessiveis no useState no nossos app, para isso acessamos a rota /me do BE.
 
 Fazemos tambem uma validaçao para saber se o token esta correto depois do user logado, caso nao esteja ele é mandado embora da nossa aplicaçao.
+
+##########################################
+
+#13 COMPONENTE SIDEBAR   
+
+Criamos a pasta componentes e criamos outra pasta pro SIDEBAR
+Instalamos icons:
+
+npm i react-icons
+
+Lendo a documentaçao do CHAKRA temos um componente chamado DRAWER, que seria a NAVBAR LATERAL
+
+Apos ter criado nosso SIDEBAR importamos ele para nossa Dashboard e para paginas onde ele sera usado.
