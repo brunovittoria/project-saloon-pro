@@ -162,3 +162,11 @@ Dentro de UTILS criamos o file canSSRGuest.ts
 Apos criado passamos esse utils para a pagina de LOGIN
 
 Devemos passar lo tambem para a rota register, pois nao queremos que um usuario logado possa ver a rota REGISTER
+
+##########################################
+
+#12 PERMANCER USER LOGADO   
+
+Iremos em nosso context passar as propriedades do token em nosso useEffect para que o usuario permaneca logado em nossa app e tenha as suas propriedades acessiveis no useState no nossos app, para isso acessamos a rota /me do BE.
+
+Fazemos tambem uma validaçao para saber se o token esta correto depois do user logado, caso nao esteja ele é mandado embora da nossa aplicaçao.

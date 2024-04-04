@@ -1,5 +1,5 @@
-import { createContext, ReactNode, useState } from 'react'
-import { destroyCookie, setCookie } from 'nookies' //Servira quando fizermos o logout, para destruir o cookies.
+import { createContext, ReactNode, useState, useEffect } from 'react'
+import { destroyCookie, setCookie,parseCookies } from 'nookies' //Servira quando fizermos o logout, para destruir o cookies.
 import Router from 'next/router'
 
 import { api } from '../services/apiClient'
@@ -16,7 +16,8 @@ interface AuthContextData {
 // Definindo a estrutura de dados para o usuário
 interface UserProps {
     id: string
-    name: string
+    company: string
+    email: string
     adress: string | null
     subscriptions?: SubscriptionProps | null     //O usuario pode vir com a sub null ou com um objeto de assinatura Colocamos o ponto de ? pois nao é obrigatorio o envio da sub em nosso codigo.
 }
@@ -61,6 +62,24 @@ export function AuthProvider({ children }: AuthProviderProps){
     const [user, setUser] = useState<UserProps>()       // Estado para armazenar as informações do usuário
     const isAuthenticated = !!user                      //As !! converte o valor em BOOLEAN Se nao tiver informaçoes o isAuthenticated ira retornar falso, se tiver infos no user ira retornar TRUE.
 
+    useEffect(() => {
+        const { '@saloon.token': token} = parseCookies()
+
+        if(token){                                      //Aqui fazemos basicamente uma validaçao se o token esta correto, se nao estiver por conta que o usuario mudou, ele sera expulso da nossa app.
+
+            api.get('/me').then(response => {
+                const { id, company, adress, email, subscriptions } = response.data
+
+                setUser({ id, company, adress, email, subscriptions })
+            })
+            .catch(() => {
+                signOut()
+            })
+
+        }
+
+    })
+
     async function signIn({ email, password }: SignInProps){
         try{
             const response = await api.post("/session", {
@@ -68,7 +87,7 @@ export function AuthProvider({ children }: AuthProviderProps){
                 password
             })
             console.log(response.data)
-            const { id, name, token, subscriptions, adress} = response.data //Fazemos o desconstructioring dos dados que queremos passar no cookies e na UseState
+            const { id, company, token, subscriptions, adress} = response.data //Fazemos o desconstructioring dos dados que queremos passar no cookies e na UseState
 
             setCookie(undefined, '@saloon.token', token, { //O SetCookie pede um contexto, porem como nao temos um ja que estamos no frontend, passamos como undefined. Como 2° param. passamos o token para dentro do cookie
                 maxAge: 60 * 60 * 24 * 30,                //Tempo de expiraçao do cookie (Nesse caso de 1 mes)
@@ -77,10 +96,12 @@ export function AuthProvider({ children }: AuthProviderProps){
 
             setUser({                                    //Agora dentro da useState passamos as informaçoes para que elas fiquem armazenadas
                 id,
-                name,
+                company,
+                email,
                 adress,
                 subscriptions
             })
+            
 
             api.defaults.headers.common['Authorization'] = `Bearer ${token}` //Agora passamos um HEADER do tipo TOKEN para nossa requisiçao a rota do backend, pra que o usuario possa injetar o token e logar
             
