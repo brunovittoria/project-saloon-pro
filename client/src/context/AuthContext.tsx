@@ -16,7 +16,7 @@ interface AuthContextData {
 // Definindo a estrutura de dados para o usuário
 interface UserProps {
     id: string
-    company: string
+    name: string
     email: string
     adress: string | null
     subscriptions?: SubscriptionProps | null     //O usuario pode vir com a sub null ou com um objeto de assinatura Colocamos o ponto de ? pois nao é obrigatorio o envio da sub em nosso codigo.
@@ -39,7 +39,7 @@ interface SignInProps {
 }
 
 interface SignUpProps {
-    company: string
+    name: string
     email: string
     password: string
 }
@@ -68,9 +68,9 @@ export function AuthProvider({ children }: AuthProviderProps){
         if(token){                                      //Aqui fazemos basicamente uma validaçao se o token esta correto, se nao estiver por conta que o usuario mudou, ele sera expulso da nossa app.
 
             api.get('/me').then(response => {
-                const { id, company, adress, email, subscriptions } = response.data
+                const { id, name, adress, email, subscriptions } = response.data
 
-                setUser({ id, company, adress, email, subscriptions })
+                setUser({ id, name, adress, email, subscriptions })
             })
             .catch(() => {
                 signOut()
@@ -78,7 +78,7 @@ export function AuthProvider({ children }: AuthProviderProps){
 
         }
 
-    })
+    }, [])
 
     async function signIn({ email, password }: SignInProps){
         try{
@@ -87,7 +87,7 @@ export function AuthProvider({ children }: AuthProviderProps){
                 password
             })
             console.log(response.data)
-            const { id, company, token, subscriptions, adress} = response.data //Fazemos o desconstructioring dos dados que queremos passar no cookies e na UseState
+            const { id, name, token, subscriptions, adress} = response.data //Fazemos o desconstructioring dos dados que queremos passar no cookies e na UseState
 
             setCookie(undefined, '@saloon.token', token, { //O SetCookie pede um contexto, porem como nao temos um ja que estamos no frontend, passamos como undefined. Como 2° param. passamos o token para dentro do cookie
                 maxAge: 60 * 60 * 24 * 30,                //Tempo de expiraçao do cookie (Nesse caso de 1 mes)
@@ -96,13 +96,13 @@ export function AuthProvider({ children }: AuthProviderProps){
 
             setUser({                                    //Agora dentro da useState passamos as informaçoes para que elas fiquem armazenadas
                 id,
-                company,
+                name,
                 email,
                 adress,
                 subscriptions
             })
             
-
+            console.log("Cai no TRY")
             api.defaults.headers.common['Authorization'] = `Bearer ${token}` //Agora passamos um HEADER do tipo TOKEN para nossa requisiçao a rota do backend, pra que o usuario possa injetar o token e logar
             
             Router.push('/dashboard')                                       //Uma vez que ele logou e o token foi salvo no header e COOKIES, vamos enviar o user pra tela de DASHBOARD
@@ -112,9 +112,9 @@ export function AuthProvider({ children }: AuthProviderProps){
         }
     }
 
-    async function signUp({ company, email, password}: SignUpProps){
+    async function signUp({ name, email, password}: SignUpProps){
         try{
-            const response = await api.post('/users', {company, email, password}) //Simplesmente passamos os dados para o nosso backend tratar 
+            const response = await api.post('/users', {name, email, password}) //Simplesmente passamos os dados para o nosso backend tratar 
 
             Router.push('/login')                   //Caso tenha criado com sucesso o user mandamos ele pro login, para ele se logar
         } catch(err){

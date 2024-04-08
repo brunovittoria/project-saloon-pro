@@ -21,10 +21,7 @@ export default function Login(){
             return
         }
 
-        await signIn({
-            email,
-            password,
-        })
+        await signIn({email, password})
     }
 
     return(

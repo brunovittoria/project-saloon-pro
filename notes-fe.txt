@@ -186,3 +186,10 @@ Apos ter criado nosso SIDEBAR importamos ele para nossa Dashboard e para paginas
 
 Agora iremos configurar ela para que desapareca no MOBILE
 
+##########################################
+
+#14 PAGINA PROFILE
+
+Seguindo nosso FIGMA FILE, devemos construir a pagina "PROFILE"
+
+Criamos nosso component dentro de pages > PROFILE

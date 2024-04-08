@@ -14,14 +14,14 @@ export default function Register(){
 
     const [email, setEmail]       = useState('')
     const [password, setPassword] = useState('')
-    const [company, setCompany]   = useState('')
+    const [name, setname]   = useState('')
 
     async function handleRegister(){
-        if(company === '' && email === '' && password === '' ){ //Se nao estiver preenchido algum campo, retorna imediatamente.
+        if(name === '' && email === '' && password === '' ){ //Se nao estiver preenchido algum campo, retorna imediatamente.
             return
         }
         
-        await signUp({company, email, password})        //Simplesmente passamos as infos do USESTATE ao CONTEXT e o CONTEXT manda pro BE
+        await signUp({name, email, password})        //Simplesmente passamos as infos do USESTATE ao CONTEXT e o CONTEXT manda pro BE
     }
 
     return(
@@ -49,8 +49,8 @@ export default function Register(){
                         placeholder="Nome del tuo saloon"
                         type="text"
                         mb={3}
-                        value={company}
-                        onChange={(e) => setCompany(e.target.value)}
+                        value={name}
+                        onChange={(e) => setname(e.target.value)}
                     />
 
                     <Input
