@@ -3,8 +3,19 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { extendTheme } from "@chakra-ui/react";
 import { AuthProvider } from "../context/AuthContext";
 
+const styles = {
+  global:{
+    body:{
+      color: 'gray.100'
+    },
+    a:{
+      color: '#FFF'
+    }
+  }
+}
+
 const colors = {  //Definimos nossas cores personalizadas que nao tem no chakraUI e iremos passar elas para o nosso Provider.
-  barber: {
+  barber:{
     900: '#12131b',
     400: '#1b1c29',
     100: '#c6c6c6'
@@ -20,7 +31,7 @@ const colors = {  //Definimos nossas cores personalizadas que nao tem no chakraU
   }
 }
 
-const theme = extendTheme({ colors })
+const theme = extendTheme({ styles, colors })
 
 function App({ Component, pageProps }: AppProps) {
   return (

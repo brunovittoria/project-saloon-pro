@@ -37,6 +37,9 @@ Vamos ate esse link para instalaçao no NEXT: https://chakra-ui.com/getting-star
 
 Apos instalacao vamos configurar nosso provider do CHAKRA, basta envolver nosso _app.tsx dentro do chackra provider
 
+Configuramos o TEMA DO CHAKRA para nao surgirem diversos bugs de cores diferentes em navegadores diferentes: 
+https://fabricadeapps.club.hotmart.com/lesson/Me1N138w7Y/melhorando-nosso-tema
+
 
 ##########################################
 
@@ -193,3 +196,5 @@ Agora iremos configurar ela para que desapareca no MOBILE
 Seguindo nosso FIGMA FILE, devemos construir a pagina "PROFILE"
 
 Criamos nosso component dentro de pages > PROFILE
+
+PAREI NO 09:47

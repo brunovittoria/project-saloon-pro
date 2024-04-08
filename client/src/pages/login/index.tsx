@@ -51,6 +51,7 @@ export default function Login(){
                         mb={3}
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        color="white"
                     />
 
                     <Input
@@ -62,6 +63,7 @@ export default function Login(){
                         mb={6}
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
+                        color="white"
                     />
 
                     <Button
