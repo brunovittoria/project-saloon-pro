@@ -183,3 +183,7 @@ npm i react-icons
 Lendo a documentaçao do CHAKRA temos um componente chamado DRAWER, que seria a NAVBAR LATERAL
 
 Apos ter criado nosso SIDEBAR importamos ele para nossa Dashboard e para paginas onde ele sera usado.
+
+Agora iremos configurar ela para que desapareca no MOBILE
+
+PAREI NO 03:21

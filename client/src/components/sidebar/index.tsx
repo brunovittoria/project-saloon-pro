@@ -125,10 +125,28 @@ export function Sidebar({ children }: { children: ReactNode }){
                 display={{ base: "none", md: "block"}}
             />
 
+            <Drawer
+                autoFocus={false}
+                isOpen={isOpen} //O nosso disclosure ira se ocupar se esta aberto ou nao nossa MODAL
+                placement="left"
+                returnFocusOnClose={false}
+                onOverlayClick={onClose}
+                size="full"
+                onClose={onClose}
+            >
+                <DrawerContent>
+                    <SidebarContent onClose={() => onClose}/>
+                </DrawerContent>
+            </Drawer>
+
             <Box>
                 {children} {/*Aqui basicamente sao nossas rotas onde iremos usar o NAVBAR */}
             </Box>
         </Box>
     )
 }
+
+
+//Aqui abaixo iremos criar um componente pro nav MOBILE
+
 
