@@ -116,6 +116,7 @@ const SidebarContent = ({onClose, ...rest} : SidebarProps) => {
 }
 
 export function Sidebar({ children }: { children: ReactNode }){
+
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     return(
@@ -139,14 +140,45 @@ export function Sidebar({ children }: { children: ReactNode }){
                 </DrawerContent>
             </Drawer>
 
-            <Box>
+            <MobileNav display={{ base: 'flex', md: 'none' }} onOpen={onOpen}/> {/*Passamos a prop do useDisclosure*/}
+            <Box ml={{ base: 0, md: 60}} p={4}> {/*COLOCAMOS UMA MARGEM PARA DESCOLAR A NAVBAR CONTEUDO DO CHILDREN*/}
                 {children} {/*Aqui basicamente sao nossas rotas onde iremos usar o NAVBAR */}
             </Box>
         </Box>
     )
 }
 
+interface MobileProps extends FlexProps{
+    onOpen: () => void 
+}
 
-//Aqui abaixo iremos criar um componente pro nav MOBILE
+//Aqui abaixo iremos criar um componente pro nav MOBILE que quando tiver no mobile ira abrir o hamburguer
 
+const MobileNav = ({ onOpen, ...rest }: MobileProps ) => {
+    return(
+        <Flex
+            ml={{ base: 0, md: 60 }}
+            px={{ base: 4, md: 24 }}
+            height="20"
+            alignItems="center"
+            bg={useColorModeValue('white', 'gray.900')}
+            borderBottomWidth="1px"
+            borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
+            justifyContent="flex-start"
+            {...rest}
+        >
+            <IconButton
+                variant="outline"
+                onClick={onOpen}
+                aria-label="open menu"
+                icon={ <FiMenu/> }
+            />
 
+            <Flex flexDirection="row">
+                    <Text ml={8} fontSize="2x1" fontFamily="monospace" fontWeight="bold">Saloon</Text>
+                    <Text fontSize="2x1" fontFamily="monospace" fontWeight="bold" color="button.cta">PRO</Text>
+            </Flex>
+
+        </Flex>
+    )
+}
