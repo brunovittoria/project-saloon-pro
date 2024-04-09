@@ -4,9 +4,11 @@ import {
     Text,
     Heading,
     Box,
-    Input
+    Input,
+    Button
 } from '@chakra-ui/react'
 import { Sidebar } from '../../components/sidebar'
+import Link from 'next/link'
 
 export default function Profile(){
     return(
@@ -43,6 +45,62 @@ export default function Profile(){
                                 type="text"
                                 mb={3}
                             />
+
+                            <Text mb={2} fontSize="xl" fontWeight="bold" color="white">Piano attuale:</Text>
+
+                            <Flex
+                                direction="row"
+                                w="100%"
+                                mb={3}
+                                p={1}
+                                borderWidth={1}
+                                rounded={6}
+                                background="barber.900"
+                                alignItems="center"
+                                justifyContent="space-between"
+                            >
+                                <Text p={2} fontSize="lg" color="#4dffb4">Piano Gratis</Text>
+
+                                <Link href="/planos">
+                                    <Box 
+                                        cursor="pointer" 
+                                        p={1} 
+                                        pl={2} 
+                                        pr={2} 
+                                        background="#00cd52" 
+                                        rounded={4} 
+                                        color="white"
+                                    >
+                                        Aggiorna Piano
+                                    </Box>
+                                </Link>
+                            </Flex>
+
+                            <Button
+                                w="100%"
+                                mt={3}
+                                mb={4}
+                                bg="button.cta"
+                                size="lg"
+                                _hover={{ bg: '#ffb13e' }}
+                                color="white"
+                            >
+                                Salva
+                            </Button>
+
+                            <Button
+                                w="100%"
+                                mb={6}
+                                bg="transparent"
+                                borderWidth={2}
+                                borderColor="red.500"
+                                color="red.500"
+                                size="lg"
+                                _hover={{ bg: 'transparent' }}
+                            >
+                                Esci dal account
+                            </Button>
+
                         </Flex>
 
                     </Flex>
