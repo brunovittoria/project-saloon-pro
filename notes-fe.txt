@@ -197,4 +197,16 @@ Seguindo nosso FIGMA FILE, devemos construir a pagina "PROFILE"
 
 Criamos nosso component dentro de pages > PROFILE
 
-PAREI NO 09:47
+
+##########################################
+
+#15 DESLOGANDO USER
+
+Na nossa pagina Profile devemos fazer com que caso o user clique em "esci dal account" que ele saia.
+
+Alem disso devemos proteger nossa rota profile com o "canSSRAuth"
+
+Iremos tambem ja carregar nos campos com os valores do nome do salao e o endereco do mesmo
+
+Parei no 06:23
+

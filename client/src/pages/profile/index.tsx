@@ -1,3 +1,4 @@
+import { useContext } from 'react'
 import Head from 'next/head'
 import {
     Flex,
@@ -9,8 +10,17 @@ import {
 } from '@chakra-ui/react'
 import { Sidebar } from '../../components/sidebar'
 import Link from 'next/link'
+import { canSSRAuth } from '../../utils/canSSRAuth'
+import { AuthContext } from '../../context/AuthContext'
+import { setupAPIClient } from '../../services/api' //Usamos para carregar informacoes do backend nos campos do perfil
 
 export default function Profile(){
+    const { logoutUser } = useContext(AuthContext)
+
+    async function handleLogout(){
+        await logoutUser()
+    }
+
     return(
         <>
             <Head>
@@ -97,6 +107,7 @@ export default function Profile(){
                                 color="red.500"
                                 size="lg"
                                 _hover={{ bg: 'transparent' }}
+                                onClick={handleLogout}
                             >
                                 Esci dal account
                             </Button>
@@ -110,3 +121,28 @@ export default function Profile(){
         </>
     )
 }
+
+export const getServerSideProps = canSSRAuth(async (ctx) => {
+
+    try{
+        const apiClient = setupAPIClient(ctx)
+        const response = await apiClient.get('/me')
+
+        const user = {          //Fazemos o desconstructioring dos dados que o backend nos passa no response para que possamos passar esses dados em nosso componente PROFILE
+            id: response.data.id,
+            name: response.data.name,
+            email: response.data.email,
+            adress: response.data?.adress
+        }
+
+        return{ props: {
+            user: user          //Desta forma passamos as infos do BE via props ao nosso componente PROFILE
+        }}
+
+    } catch(err){
+        console.log(err)
+
+        return{ redirect:{ destination: '/dashboard', permanent: false }}
+    }
+
+})
