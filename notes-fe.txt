@@ -217,3 +217,9 @@ Pegamos os dados do tipo de plano do USER
 #16 ALTERANDO INFO DE USERS
 
 Iremos continuar com as alteraçoes em nosso profile.tsx e iremos de fato mudar as infos do users e mandar-las para o BE
+
+##########################################
+
+#17 PAGINA MODELOS DE CORTES
+
+Iremos estruturar nossa pagina de servicos do FE

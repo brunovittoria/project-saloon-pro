@@ -34,8 +34,8 @@ interface LinkItemProps{
 //Iremos construir os itens da nossa NAVBAR primeiramente em um array para depois passarmos de fato em nossa NAVBAR
 
 const LinkItems: Array<LinkItemProps> = [   //Definimos o tipo Array para nosso array e passamos a nossa tipagem do array via nossa interface
-    { name: "Agenda", icon: FiScissors, route: "/dashboard"},
-    { name: "Servizi", icon: FiClipboard, route: "/services"},
+    { name: "Agenda", icon: FiClipboard, route: "/dashboard"},
+    { name: "Servizi", icon: FiScissors, route: "/servicos"},
     { name: "Mio Account", icon: FiSettings, route: "/profile"},
 ]
 
