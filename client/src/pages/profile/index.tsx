@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import Head from 'next/head'
 import {
     Flex,
@@ -14,8 +14,23 @@ import { canSSRAuth } from '../../utils/canSSRAuth'
 import { AuthContext } from '../../context/AuthContext'
 import { setupAPIClient } from '../../services/api' //Usamos para carregar informacoes do backend nos campos do perfil
 
-export default function Profile(){
+interface UserProps{
+    id: string
+    name: string
+    email: string
+    adress: string | null
+}
+
+interface ProfileProps{
+    user: UserProps
+    premium: boolean
+}
+
+export default function Profile({ user, premium }: ProfileProps){
     const { logoutUser } = useContext(AuthContext)
+
+    const [name, setName] = useState(user && user?.name)        //Como queremos pegar esse valor do BE nao inicializamos ele vazio
+    const [adress, setAdress] = useState(user && user?.adress)  //O ? é so um operador do JS que caso ele vir vazio ira manter vazio
 
     async function handleLogout(){
         await logoutUser()
@@ -44,6 +59,8 @@ export default function Profile(){
                                 size="lg"
                                 type="text"
                                 mb={3}
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
                             />
 
                             <Text mb={2} fontSize="xl" fontWeight="bold" color="white">Indirizzo del tuo saloon:</Text>
@@ -54,6 +71,8 @@ export default function Profile(){
                                 size="lg"
                                 type="text"
                                 mb={3}
+                                value={adress}
+                                onChange={(e) => setAdress(e.target.value)}
                             />
 
                             <Text mb={2} fontSize="xl" fontWeight="bold" color="white">Piano attuale:</Text>
@@ -69,7 +88,9 @@ export default function Profile(){
                                 alignItems="center"
                                 justifyContent="space-between"
                             >
-                                <Text p={2} fontSize="lg" color="#4dffb4">Piano Gratis</Text>
+                                <Text p={2} fontSize="lg" color={premium ? "#FBA931" : "#4dffb4"}>
+                                    Piano {premium ? "Premium" : "Gratis"}
+                                </Text>
 
                                 <Link href="/planos">
                                     <Box 
@@ -135,9 +156,12 @@ export const getServerSideProps = canSSRAuth(async (ctx) => {
             adress: response.data?.adress
         }
 
-        return{ props: {
-            user: user          //Desta forma passamos as infos do BE via props ao nosso componente PROFILE
-        }}
+        return{ 
+            props: {
+                user: user,          //Desta forma passamos as infos do BE via props em nosso INTERFACE ao nosso componente PROFILE
+                premium: response.data?.subscriptions?.status === "active" ? true : false
+            }
+        }
 
     } catch(err){
         console.log(err)

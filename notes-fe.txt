@@ -206,7 +206,7 @@ Na nossa pagina Profile devemos fazer com que caso o user clique em "esci dal ac
 
 Alem disso devemos proteger nossa rota profile com o "canSSRAuth"
 
-Iremos tambem ja carregar nos campos com os valores do nome do salao e o endereco do mesmo
+Iremos tambem ja carregar nos campos com os valores do nome do salao e o endereco do mesmo que pegamos do BE
 
-Parei no 06:23
+Pegamos os dados do tipo de plano do USER
 
