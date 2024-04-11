@@ -36,6 +36,27 @@ export default function Profile({ user, premium }: ProfileProps){
         await logoutUser()
     }
 
+    async function handleUpdateUser(){  //Tornamos essa funçao em ASYNC pois ela deve comunicar com a API
+
+        if(name == ""){
+            return
+        }
+
+        try{
+            const apiClient = setupAPIClient()
+            await apiClient.put('/users', {
+                name: name,
+                adress: adress,
+            })
+
+            alert("Dados alterados")
+        
+        }catch(err){
+            console.log(err)
+        }
+
+    }
+
     return(
         <>
             <Head>
@@ -115,6 +136,7 @@ export default function Profile({ user, premium }: ProfileProps){
                                 size="lg"
                                 _hover={{ bg: '#ffb13e' }}
                                 color="white"
+                                onClick={handleUpdateUser}
                             >
                                 Salva
                             </Button>

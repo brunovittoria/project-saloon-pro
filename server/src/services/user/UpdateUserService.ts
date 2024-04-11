@@ -7,7 +7,7 @@ interface UserRequest{          //Criamos uma interface exigindo que nos seja en
 }
 
 class UpdateUserService{
-    async execute(user_id, name, adress ){
+    async execute({user_id, name, adress}:UserRequest ){
 
         try{
             const userAlreadyExists = await prismaClient.user.findFirst({

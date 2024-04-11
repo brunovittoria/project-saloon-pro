@@ -210,3 +210,10 @@ Iremos tambem ja carregar nos campos com os valores do nome do salao e o enderec
 
 Pegamos os dados do tipo de plano do USER
 
+
+
+##########################################
+
+#16 ALTERANDO INFO DE USERS
+
+Iremos continuar com as alteraçoes em nosso profile.tsx e iremos de fato mudar as infos do users e mandar-las para o BE
