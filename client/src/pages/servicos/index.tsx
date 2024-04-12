@@ -7,11 +7,15 @@ import {
     Heading,
     Button,
     Stack,
-    Switch
+    Switch,
+    useMediaQuery
 } from '@chakra-ui/react'
+
+import { IoMdPricetag } from 'react-icons/io'
 
 export default function Servicos(){
 
+    const [isMobile] = useMediaQuery("(max-width: 500px)")
     return(
         <>
             <Head>
@@ -20,8 +24,8 @@ export default function Servicos(){
             <Sidebar>
                 <Flex direction="column" alignItems="flex-start" justifyContent="flex-start">
 
-                    <Flex direction="row" w="100%" alignItems="center" justifyContent="flex-start" mb={0}>
-                        <Heading fontSize="3xl" mt={4} mb={4} mr={4} color="orange.900">
+                    <Flex direction={isMobile ? "column" : "row"} w="100%" alignItems={isMobile ? "flex-start" : "center"} justifyContent="flex-start" mb={0}>
+                        <Heading fontSize={isMobile ? "28px" : "3xl"} mt={4} mb={4} mr={4} color="orange.900">
                             Miei Servizi
                         </Heading>
 
@@ -40,6 +44,24 @@ export default function Servicos(){
                         </Stack>
 
                     </Flex>
+
+                    <Link href="/haircuts/123" > {/*Essa propriedade serve pra quando queremos colocar um flex dentro do legacyBehavior */}
+                            
+                            <Flex cursor="pointer" w="100%" p={4} bg="barber.400" direction="row" rounded="4" mb={2} justifyContent="space-between">
+                                <Flex direction="row" alignItems="center" justifyContent="center">
+                                    <IoMdPricetag size={28} color="#fba931"/>
+                                        <Text fontWeight="bold" ml={4} color="white">
+                                            Taglio Uomo
+                                        </Text>
+                                </Flex>
+
+                                <Text>
+                                Prezzo: €20.00
+                                </Text>
+
+                            </Flex>
+                            
+                    </Link>
 
                 </Flex>
 
