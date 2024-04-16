@@ -16,7 +16,12 @@ import Link from 'next/link'
 
 import { setupAPIClient } from '../../../services/api'
 
-export default function NewService(){
+interface NewServiceProps{
+    subscription: boolean;
+    count: number
+}
+
+export default function NewService({ subscription, count }: NewServiceProps){ //Recebemos as props do nosso backend e dps de passar pra interface passamos pro componente
     const [isMobile] = useMediaQuery("(max-width: 500px)")
 
     return(
@@ -60,9 +65,22 @@ export default function NewService(){
                             mb={4}
                         />
 
-                        <Button w="85%" size="lg" color="gray.900" mb={6} bg="button.cta" _hover={{ bg:  "#FFb13e"}}>
-                            Cadastrar
+                        <Button w="85%" size="lg" color="gray.900" mb={6} bg="button.cta" _hover={{ bg:  "#FFb13e"}} disabled={!subscription && count >= 3}>
+                            Registrare
                         </Button>
+
+                        {!subscription && count >= 3 && (
+                            <Flex direction="row" align="center" justifyContent="center">
+                                <Text>
+                                    Hai raggiunto la tua quota di servizi.
+                                </Text>
+                                <Link href="/piani">
+                                    <Text fontWeight="bold" color="#31FB6A" cursor="pointer" ml={1}> 
+                                        Diventa Premium 
+                                    </Text>
+                                </Link>
+                            </Flex>
+                        )}
                     </Flex>
 
                 </Flex>
@@ -70,3 +88,30 @@ export default function NewService(){
         </>
     )
 }
+
+export const getServerSideProps = canSSRAuth(async (ctx) => {
+
+    try{
+        const apiClient = setupAPIClient(ctx)
+        const response = await apiClient.get('/service/check') //Aqui retorna o tipo de assinatura que o user tem
+        const count = await apiClient.get('/service/count')    //Aqui retorna em numeros a QTD de servicos que o user tem
+
+        return {
+            props:{                                             //Iremos passar essas infos por props ao nosso frontend
+                subscription: response.data?.subscriptions?.status === "active" ? true : false,
+                count: count.data //Aqui ira retornar um number
+            }
+        }
+
+    } catch(err){
+        console.log(err)
+
+        return{
+            redirect:{
+                destination: '/dashboard',
+                permanent: false
+            }
+        }
+    }
+
+})

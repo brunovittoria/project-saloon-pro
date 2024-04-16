@@ -224,3 +224,12 @@ Iremos continuar com as alteraçoes em nosso profile.tsx e iremos de fato mudar 
 
 Iremos estruturar nossa pagina de servicos do FE criamos dentro dessa pasta outra pasta chamada new que tem o componente onde cadastramos novos modelos de cortes
 
+##########################################
+
+#18 LIMITE DE MODELOS CRIADOS
+
+Dentro da criaçao dos modelos dos cortes, devemos limitar a quantidade que um usuario pode criar, dependendo do tipo de assinatura que tem, para isso vamos modificar nossso file new dentro de pages > servicos > new.
+
+##########################################
+
+#19 
