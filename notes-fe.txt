@@ -220,6 +220,7 @@ Iremos continuar com as alteraçoes em nosso profile.tsx e iremos de fato mudar 
 
 ##########################################
 
-#17 PAGINA MODELOS DE CORTES
+#17 PAGINA CADASTRAR MODELOS DE CORTES
 
-Iremos estruturar nossa pagina de servicos do FE
+Iremos estruturar nossa pagina de servicos do FE criamos dentro dessa pasta outra pasta chamada new que tem o componente onde cadastramos novos modelos de cortes
+

@@ -47,8 +47,9 @@ export default function Servicos(){
 
                     <Link href="/haircuts/123" > {/*Essa propriedade serve pra quando queremos colocar um flex dentro do legacyBehavior */}
                             
-                            <Flex cursor="pointer" w="100%" p={4} bg="barber.400" direction="row" rounded="4" mb={2} justifyContent="space-between">
-                                <Flex direction="row" alignItems="center" justifyContent="center">
+                            <Flex cursor="pointer" w="100%" p={4} bg="barber.400" align={isMobile ? "flex-start" : "center"} direction={isMobile ? "column" : "row"} rounded="4" mb={2} justifyContent="space-between">
+                                
+                                <Flex mb={isMobile ? 2 : 0} direction="row" alignItems="center" justifyContent="center">
                                     <IoMdPricetag size={28} color="#fba931"/>
                                         <Text fontWeight="bold" ml={4} color="white">
                                             Taglio Uomo
