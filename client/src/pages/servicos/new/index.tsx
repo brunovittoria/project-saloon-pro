@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Head from 'next/head'
 import { Sidebar } from '../../../components/sidebar'
 import { FiChevronLeft} from 'react-icons/fi'
@@ -13,6 +14,7 @@ import {
 } from '@chakra-ui/react'
 
 import Link from 'next/link'
+import Router from 'next/router'
 
 import { setupAPIClient } from '../../../services/api'
 
@@ -23,6 +25,26 @@ interface NewServiceProps{
 
 export default function NewService({ subscription, count }: NewServiceProps){ //Recebemos as props do nosso backend e dps de passar pra interface passamos pro componente
     const [isMobile] = useMediaQuery("(max-width: 500px)")
+
+    const [name, setName] = useState("")
+    const [price, setPrice] = useState("")
+
+    async function handleRegister(){
+        console.log({name, price})
+
+        try{
+            const apiClient = setupAPIClient()
+            await apiClient.post('/service', {
+                name: name,
+                price: Number(price),
+            })
+
+            Router.push("/servicos")
+        } catch(err){
+            console.log(err)
+            alert("Erro ao cadastrar esse modelo.")
+        }
+    }
 
     return(
         <>
@@ -48,6 +70,8 @@ export default function NewService({ subscription, count }: NewServiceProps){ //
                             Registra Servizio
                         </Heading>
                         <Input 
+                            value={name}
+                            onChange={(e) => setName(e.target.value) }
                             placeholder="Nome del servizio"
                             size="lg"
                             type="text"
@@ -57,6 +81,8 @@ export default function NewService({ subscription, count }: NewServiceProps){ //
                         />
 
                         <Input 
+                            value={price}
+                            onChange={(e) => setPrice(e.target.value) }
                             placeholder="Prezzo"
                             size="lg"
                             type="text"
@@ -65,7 +91,7 @@ export default function NewService({ subscription, count }: NewServiceProps){ //
                             mb={4}
                         />
 
-                        <Button w="85%" size="lg" color="gray.900" mb={6} bg="button.cta" _hover={{ bg:  "#FFb13e"}} disabled={!subscription && count >= 3}>
+                        <Button onClick={handleRegister} w="65%" size="lg" color="gray.900" mb={6} bg="button.cta" _hover={{ bg:  "#FFb13e"}} disabled={!subscription && count >= 3}>
                             Registrare
                         </Button>
 
