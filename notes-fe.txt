@@ -232,4 +232,14 @@ Dentro da criaçao dos modelos dos cortes, devemos limitar a quantidade que um u
 
 ##########################################
 
-#19 
+#20 CRIACAO DE MODELOS DE SERVICOS
+
+Aqui criamos uma opcao onde o usuario pode cadastrar um novo modelo de serviço/corte no database, para maiores detalhes acessar o path:
+
+pages > servicos > new
+
+#19 LISTANDO MODELOS DE SERVICOS/CORTES
+
+Seguindo o figma file, temos uma pagina que lista todos os modelos de cortes DISPONIVEIS.
+
+Temos mais detalhes na rota: 
