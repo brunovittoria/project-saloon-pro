@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, ChangeEvent } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import { Sidebar } from '../../components/sidebar'
@@ -33,6 +33,31 @@ export default function Servicos({ services }: ServicesProps ){
 
     const [isMobile] = useMediaQuery("(max-width: 500px)")
     const [serviceList, setServiceList] = useState<ServicesItem[]>(services || [])        //Como estado inicial de nossa STATE passamos a lista de servicos com um GENERIC do TS
+    const [disableservice, setDisableService] = useState("enabled")                       //Use state para nosso SWITCH deixamos como ativo no inicio pois o serverSideProps carrega no "useEffect" inicialmente o SWITCH com valor de ativo
+
+    async function handleSwitch(e: ChangeEvent<HTMLInputElement>){                         //Devemos tipar ate mesmo o EVENT
+        const apiClient = setupAPIClient()
+        
+        if(e.target.value === "disabled"){
+            setDisableService("enabled")
+            const response = await apiClient.get('/services',{                      //Vamos pegar agora a lista de todos os servicos do backend
+                params:{
+                    status: true
+                }
+            })
+            
+            setServiceList(response.data)   //Inserimos os dados que obtemos do backend em nossa USESTATE responsavel por listar os servicos
+        }else{
+            setDisableService("disabled")
+                const response = await apiClient.get('/services',{                      
+                    params:{
+                        status: false
+                    }
+                })
+            
+                setServiceList(response.data)
+        }
+    }
 
     return(
         <>
@@ -56,8 +81,11 @@ export default function Servicos({ services }: ServicesProps ){
                         <Stack ml="auto" align="center" direction="row">
                             <Text>ATTIVI</Text>
                             <Switch
+                                isChecked= {disableservice == "disabled" ? false : true}
                                 colorScheme="green"
                                 size="lg"
+                                value={disableservice}
+                                onChange={(e: ChangeEvent<HTMLInputElement>) => ( handleSwitch(e))}     //Esse changeEvent passamos pois é pedido pelo TS
                             />
                         </Stack>
 

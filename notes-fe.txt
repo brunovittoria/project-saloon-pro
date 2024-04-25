@@ -240,6 +240,14 @@ pages > servicos > new
 
 #19 LISTANDO MODELOS DE SERVICOS/CORTES
 
-Seguindo o figma file, temos uma pagina que lista todos os modelos de cortes DISPONIVEIS.
+Seguindo o figma file, temos uma pagina que lista todos os modelos de cortes.
 
-Temos mais detalhes na rota: 
+Temos mais detalhes no path : SERVICOS > INDEX.TS
+
+
+#20 FILTRANDO MODELOS DE SERVICOS/CORTES POR ATIVOS
+
+Seguindo o figma file, dentro da pagina onde listamos todos os modelos temos um componente "SWITCH" onde podemos filtrar somente cortes ativos.
+
+Mais detalhes no path : SERVICOS > INDEX.TS
+
