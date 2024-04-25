@@ -242,12 +242,20 @@ pages > servicos > new
 
 Seguindo o figma file, temos uma pagina que lista todos os modelos de cortes.
 
-Temos mais detalhes no path : SERVICOS > INDEX.TS
+Temos mais detalhes no path : SERVICOS > INDEX.tsx
 
 
 #20 FILTRANDO MODELOS DE SERVICOS/CORTES POR ATIVOS
 
 Seguindo o figma file, dentro da pagina onde listamos todos os modelos temos um componente "SWITCH" onde podemos filtrar somente cortes ativos.
 
-Mais detalhes no path : SERVICOS > INDEX.TS
+Mais detalhes no path : SERVICOS > INDEX.tsx
 
+
+#21 EDITANDO MODELOS
+
+Seguindo o figma file, dentro da pagina onde listamos todos os modelos ao clicar em um dos modelos devemos editar-lo.
+
+Mais detalhes no path : SERVICOS > [id].tsx Criamos dessa forma para o next entender que é algo dinamico
+
+PAREI NO 9:30
