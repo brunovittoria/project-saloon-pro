@@ -4,7 +4,10 @@ import {
     Text,
     Heading,
     Button,
-    useMediaQuery
+    useMediaQuery,
+    Input,
+    Stack,
+    Switch
 } from '@chakra-ui/react'
 
 import { Sidebar } from "../../components/sidebar";
@@ -39,9 +42,42 @@ export default function EditHaircut(){
                         <Heading fontSize={isMobile ? "22px" : "3xl"} color="white">
                             Modifica
                         </Heading>
+                    </Flex>
 
-                        <Flex maxH="700px">
+                    <Flex mt={4} maxH="700px" pt={8} pb={8} w="100%" bg="barber.400" direction="column" align="center" justify="center">
+                        <Heading fontSize={isMobile ? "22px" : "3xl"}>Modifica Servizio</Heading>
 
+                        <Flex w="85%" direction="column">
+                            <Input
+                                placeholder="Nome del Servizio"
+                                bg="gray.900"
+                                mb={3}
+                                size="lg"
+                                type="text"
+                                mt={4}
+                                w="100%"
+                            />
+
+                            <Input
+                                placeholder="Prezzo del tuo servizio ex: 45.70"
+                                bg="gray.900"
+                                mb={3}
+                                size="lg"
+                                type="text"
+                                w="100%"
+                            />
+
+                            <Stack mb={6} align="center" direction="row">
+                                <Text fontWeight="bold">Disattivare Servizio</Text>
+                                <Switch
+                                    size="lg"
+                                    colorScheme="red"
+                                />
+                            </Stack>
+
+                            <Button mb={6} w="100%" bg="button.cta" color="gray.900" _hover={{ bg: "#FFB13e"}}>
+                                Salva
+                            </Button>
                         </Flex>
                     </Flex>
 
