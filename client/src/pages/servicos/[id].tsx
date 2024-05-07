@@ -13,6 +13,9 @@ import {
 import { Sidebar } from "../../components/sidebar";
 import { FiChevronLeft } from "react-icons/fi";
 import Link from "next/link";
+import { setupAPIClient } from "../../services/api";
+
+import { canSSRAuth } from '../../utils/canSSRAuth'
 
 export default function EditHaircut(){
     const [isMobile] = useMediaQuery("(max-width: 500px)")
@@ -86,3 +89,35 @@ export default function EditHaircut(){
         </>
     )
 }
+
+export const getServerSideProps = canSSRAuth(async (ctx) => {
+    const { id } = ctx.params
+
+    try{
+        const apiClient = setupAPIClient(ctx)
+
+        const check = await apiClient.get('/service/check') //Rota responsavel por verificar se o user tem subcription
+
+        const response = await apiClient.get('/service/detail', {
+            params: {
+                work_id: id
+            }
+        })
+
+        return{
+            props:{
+                service: response.data  //Iremos retornar o response data na prop service
+            }
+        }
+
+    }catch(err){
+        console.log(err)
+
+        return{
+            redirect:{
+                destination: "/servicos",
+                permanent: false,
+            }
+        }
+    }
+})

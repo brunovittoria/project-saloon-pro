@@ -258,3 +258,10 @@ Seguindo o figma file, dentro da pagina onde listamos todos os modelos ao clicar
 
 Mais detalhes no path : SERVICOS > [id].tsx Criamos dessa forma para o next entender que é algo dinamico
 
+#22 BUSCANDO ITEM
+
+Estamos sempre trabalhanod na pagina SERVICOS > [id].tsx
+
+Primeiramente comecamos protegendo essa pagina, para isso devemo usar o canSSRAuth. Depois de feito isso criamos no serverSideProps que ira fazer a chamada para 
+
+PAREI NO 06:30
