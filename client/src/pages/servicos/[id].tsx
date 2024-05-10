@@ -17,7 +17,25 @@ import { setupAPIClient } from "../../services/api";
 
 import { canSSRAuth } from '../../utils/canSSRAuth'
 
-export default function EditHaircut(){
+interface ServiceProps{
+    id: string
+    name: string
+    price: string | number
+    status: boolean
+    user_id: string
+}
+
+interface SubscriptionProps{
+    id: string
+    status: string
+}
+
+interface EditServiceProps{
+    services: ServiceProps
+    subscription: SubscriptionProps | null //Pois o usuario pode nao ter nenhuma assinatura
+}
+
+export default function EditHaircut({ subscription, services}: EditServiceProps){
     const [isMobile] = useMediaQuery("(max-width: 500px)")
 
     return(
@@ -78,9 +96,30 @@ export default function EditHaircut(){
                                 />
                             </Stack>
 
-                            <Button mb={6} w="100%" bg="button.cta" color="gray.900" _hover={{ bg: "#FFB13e"}}>
+                            <Button 
+                                mb={6} 
+                                w="100%" 
+                                bg="button.cta" 
+                                color="gray.900" 
+                                _hover={{ bg: "#FFB13e"}} 
+                                disabled={subscription?.status !== "active"}
+                            >
                                 Salva
                             </Button>
+
+                            { subscription?.status !== "active" && (
+                                <Flex direction="row" align="center" justify="center">
+                                    <Link href="/planos">
+                                        <Text fontWeight="bold" mr={1} color="#31fb6a">
+                                            Diventa Premium
+                                        </Text>
+                                    </Link>
+                                    <Text>
+                                        e libera tutte le funzionalita.
+                                    </Text>
+                                </Flex>
+                            )}
+
                         </Flex>
                     </Flex>
 
@@ -104,9 +143,10 @@ export const getServerSideProps = canSSRAuth(async (ctx) => {
             }
         })
 
-        return{
+        return{ //Aqui retornamos os valores pro nosso frontend
             props:{
-                service: response.data  //Iremos retornar o response data na prop service
+                service: response.data,  //Iremos retornar o response data na prop service
+                subscription: check.data?.subscriptions
             }
         }
 
