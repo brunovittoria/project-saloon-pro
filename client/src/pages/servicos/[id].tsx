@@ -1,3 +1,4 @@
+import { useState, ChangeEvent  } from "react";
 import Head from "next/head";
 import {
     Flex,
@@ -38,6 +39,44 @@ interface EditServiceProps{
 export default function EditHaircut({ subscription, services}: EditServiceProps){
     const [isMobile] = useMediaQuery("(max-width: 500px)")
 
+    const [name, setName] = useState(services?.name)    //Ja inicia com o valor recuperado do backend na state
+    const [price, setPrice] = useState(services?.price)
+    const [status, setStatus] = useState(services?.status)
+
+    const [disableService, setDisableService] = useState(services?.status ? "disabled" : "enabled") // Se o STATUS for true setamos como disables, se for false como enabled... n entendi o pq disso mt bem mas ok
+
+    function handleChangeStatus(e: ChangeEvent<HTMLInputElement>){
+        if(e.target.value === "enabled"){
+            setDisableService("enabled")
+            setStatus(false)
+        } else {
+            setDisableService("disabled")
+            setStatus(true)
+        }
+    }
+
+    async function handleUpdate(){
+        if(name === "" || price === ""){    //Se o user inserir dados vazios ele nao ira poder salvar
+            return                                                  
+        }
+
+        try{
+
+            const apiClient = setupAPIClient()
+            await apiClient.put('/service', {
+                name: name,
+                price: Number(price),
+                status: status,
+                work_id: services?.id
+            })
+
+            alert("Service atualizado com sucesso")
+        }catch(err){
+            console.error(err)
+        }
+
+    }
+
     return(
         <>
             <Head>
@@ -77,6 +116,8 @@ export default function EditHaircut({ subscription, services}: EditServiceProps)
                                 type="text"
                                 mt={4}
                                 w="100%"
+                                value={name}
+                                onChange={ (e) => setName(e.target.value) }
                             />
 
                             <Input
@@ -84,8 +125,10 @@ export default function EditHaircut({ subscription, services}: EditServiceProps)
                                 bg="gray.900"
                                 mb={3}
                                 size="lg"
-                                type="text"
+                                type="number"
                                 w="100%"
+                                value={price}
+                                onChange={ (e) => setPrice(e.target.value) }
                             />
 
                             <Stack mb={6} align="center" direction="row">
@@ -93,6 +136,9 @@ export default function EditHaircut({ subscription, services}: EditServiceProps)
                                 <Switch
                                     size="lg"
                                     colorScheme="red"
+                                    value={disableService}
+                                    isChecked={disableService === "disabled" ? false : true}
+                                    onChange={ (e: ChangeEvent<HTMLInputElement>) => handleChangeStatus(e) }
                                 />
                             </Stack>
 
@@ -103,6 +149,7 @@ export default function EditHaircut({ subscription, services}: EditServiceProps)
                                 color="gray.900" 
                                 _hover={{ bg: "#FFB13e"}} 
                                 disabled={subscription?.status !== "active"}
+                                onClick={handleUpdate}
                             >
                                 Salva
                             </Button>
