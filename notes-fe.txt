@@ -286,3 +286,12 @@ Setamos informações importantes em nosso useState
 #23 PAGINA AGENDA/Dashboard
 
 pages > dashboard
+
+
+##########################################
+
+#24 REGISTRANDO CLIENTE
+
+pages > new
+
+Aqui seria quando dentro do dashboard clicamos em NEW e registramos um novo cliente
