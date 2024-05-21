@@ -1,6 +1,7 @@
 import { useState, ChangeEvent } from 'react'
 import Head from "next/head"
 import { Sidebar } from "../../components/sidebar"
+import { setupAPIClient } from '@/services/api'
 
 import { 
   Flex,
@@ -11,9 +12,51 @@ import {
   Select
 } from '@chakra-ui/react'
 
-export default function New(){
+import { canSSRAuth } from '@/utils/canSSRAuth'
+
+import { useRouter } from 'next/router'
+
+interface ServiceProps{
+  id: string
+  name: string
+  price: string | number
+  status: boolean
+  user_id: string
+}
+
+interface ServiceListProps{
+  services: ServiceProps[]
+}
+
+export default function New({ services } : ServiceListProps){
 
   const [customer, setCustomer] = useState('')
+  const [serviceSelected, setServiceSelected] = useState(services[0]) //O Option ira começar por default na posiçao 0
+  const router = useRouter()
+
+  function handleChangeSelect(id: string){
+    
+    const serviceItem = services.find(item => item.id === id) //Busca por um item igual do que voce selecionou no select e o armazena nesta variavel
+    
+    setServiceSelected(serviceItem) //Passamos para nossa useState o servico selecionado
+  }
+
+  async function handleRegister(){
+
+    try{
+      const apiClient = setupAPIClient()
+      await apiClient.post('/schedule', {
+        customer: customer,
+        haircut_id: serviceSelected?.id
+      })
+
+      router.push('/dashboard') //Quando cadastrar os dados do CUSTOMER, redirecionamos para a page principal
+      
+    }catch(err){
+      console.error(err)
+    }
+
+  }
 
   return(
     <>
@@ -55,8 +98,10 @@ export default function New(){
               onChange={ (e: ChangeEvent<HTMLInputElement>) => setCustomer(e.target.value) }
             />
 
-            <Select bg="barber.900" mb={3} size="lg" w="85%">
-              <option key={1} value="Barbar completa">Barba completa</option>
+            <Select bg="barber.900" mb={3} size="lg" w="85%" onChange={ (e) => handleChangeSelect(e.target.value) }>
+              {services?.map( item => (
+                <option key={item?.id} value={item?.id}>{item?.name}</option>
+              ))}
             </Select>
 
             <Button
@@ -65,6 +110,7 @@ export default function New(){
               color="gray.900"
               bg="button.cta"
               _hover={{ bg: '#FFb13e' }}
+              onSubmit={handleRegister}
             >
               Invia
             </Button>
@@ -77,3 +123,43 @@ export default function New(){
     </>
   )
 }
+
+export const getServerSideProps = canSSRAuth(async (ctx) => {
+
+  try{
+
+    const apiClient = setupAPIClient(ctx)
+    const response = await apiClient.get('/services', { //Rota que lista servicos
+      params:{
+        status: true,
+      }
+    }) 
+      
+    if(response.data === null){
+      return{
+        redirect:{
+          destination: '/dashboard',
+          permanent: false,
+        }
+      }
+    }
+
+    return{
+      props: {
+        services: response.data
+      }
+    }
+
+  }catch(err){
+    console.error(err)
+
+    return{
+      redirect:{
+        destination: '/dashboard',
+        permanent: false
+      }
+    }
+
+  }
+  
+})

@@ -295,3 +295,9 @@ pages > dashboard
 pages > new
 
 Aqui seria quando dentro do dashboard clicamos em NEW e registramos um novo cliente
+
+##########################################
+
+#25 BUSCANDO MODELOS DE CORTES ATIVOS
+
+Resumidamente iremos fazer com que aparecam as opcoes de servicos que temos no nosso backend em nosso select
