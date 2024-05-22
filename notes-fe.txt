@@ -301,3 +301,12 @@ Aqui seria quando dentro do dashboard clicamos em NEW e registramos um novo clie
 #25 BUSCANDO MODELOS DE CORTES ATIVOS
 
 Resumidamente iremos fazer com que aparecam as opcoes de servicos que temos no nosso backend em nosso select
+
+
+##########################################
+
+#26 LISTANDO CLIENTES DA FILTRANDO
+
+Iremos listar nossos clientes em nossa tela de dashboard/AGENDA
+
+Para fazer isso vamos ate o file pages > dashboard >index.tsx

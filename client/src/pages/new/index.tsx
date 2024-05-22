@@ -43,6 +43,11 @@ export default function New({ services } : ServiceListProps){
 
   async function handleRegister(){
 
+    if(customer === ""){
+      alert("Preencha o nome do cliente")
+      return
+    }
+
     try{
       const apiClient = setupAPIClient()
       await apiClient.post('/schedule', {
