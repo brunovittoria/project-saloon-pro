@@ -310,3 +310,13 @@ Resumidamente iremos fazer com que aparecam as opcoes de servicos que temos no n
 Iremos listar nossos clientes em nossa tela de dashboard/AGENDA
 
 Para fazer isso vamos ate o file pages > dashboard >index.tsx
+
+##########################################
+
+#27 CRIANDO MODAL SUMMARY AGENDAMENTO
+
+Dentro do folder components criamos nossa MODAL
+
+
+PAREI NO 9:48
+

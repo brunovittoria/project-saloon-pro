@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useState } from "react";
+import { use, useState } from "react";
 
 import { 
     Flex, 
@@ -8,7 +8,9 @@ import {
     Link as ChakraLink, 
     useMediaQuery,
     Button, 
-    textDecoration} from '@chakra-ui/react'
+    textDecoration,
+    useDisclosure
+} from '@chakra-ui/react'
 
 import Link  from 'next/link'
 
@@ -16,6 +18,7 @@ import { canSSRAuth } from "../../utils/canSSRAuth";
 import { Sidebar } from "../../components/sidebar";
 import { IoMdPerson } from "react-icons/io";
 import { setupAPIClient } from "../../services/api";
+import { ModalInfo } from '../../components/modal'
 
 export interface ScheduleItem{
     id: string
@@ -35,6 +38,9 @@ interface DashboardProps{
 
 export default function Dashboard({ schedule }: DashboardProps ){ //Criamos uma interface para armazenar os dados do BE que recebemos via props em uma outra interface de array
     const [list, setList] = useState(schedule)
+    const { isOpen, onOpen, onClose} = useDisclosure() //Funcionalidade ja presente dentro do CHAKRAUI
+
+    const [service, setService] = useState<ScheduleItem>()
 
     const [isMobile] = useMediaQuery("(max-width: 500px)")
 
@@ -89,6 +95,15 @@ export default function Dashboard({ schedule }: DashboardProps ){ //Criamos uma 
 
                 </Flex>
             </Sidebar>
+
+            <ModalInfo
+                isOpen={isOpen}
+                onOpen={onOpen}
+                onClose={onClose}
+                data={service} //Iremos pegar o data e inserir ele dentro de uma useState para que possamos renderizarlo aqui
+                finishService={ async () => {} }
+            />
+
         
         </>
     )
