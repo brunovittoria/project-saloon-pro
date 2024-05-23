@@ -318,5 +318,3 @@ Para fazer isso vamos ate o file pages > dashboard >index.tsx
 Dentro do folder components criamos nossa MODAL
 
 
-PAREI NO 9:48
-

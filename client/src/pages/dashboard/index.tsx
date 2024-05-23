@@ -44,6 +44,37 @@ export default function Dashboard({ schedule }: DashboardProps ){ //Criamos uma 
 
     const [isMobile] = useMediaQuery("(max-width: 500px)")
 
+    function handleOpenModal(item: ScheduleItem){
+        setService(item)                                    //Passamos o service para dentro da nossa STATE que ira carregas as INFOS AO ABRIR NOSSA MODAL
+        onOpen()
+    }
+
+    async function handleFinish(id: string){ //Aqui iramos chamar a rota para deletar um agendamento
+
+        try{
+            const apiClient = setupAPIClient()
+            await apiClient.delete('/schedule', {
+                params:{
+                    schedule_id: id
+                }
+            })
+
+            const filterItem = list.filter(item => { //Para que o CLIENTE suma da lista de AGENDAMENTO devemos percorrer a STATE e eliminarlo
+                return (item?.id !== id) //Retorne o itemID diferente do que cliquei pra finalizar
+            })
+
+            setList(filterItem) //Passasmo no state a lista atualizada com o cliente removido
+            onClose()
+
+
+        }catch(err){
+            console.log(err)
+            onClose()
+            alert("Erro ao finalizar serviço")
+        }
+
+    }
+
     return(
         <>
             <Head>
@@ -63,7 +94,16 @@ export default function Dashboard({ schedule }: DashboardProps ){ //Criamos uma 
                     </Flex>
 
                     {list.map(item => ( //Fazendo o map do array que criamos na nossa interface de props
-                        <ChakraLink key={item?.id} w="100%" m={0} p={0} mt={1} bg="transparent" style={{ textDecoration: "none" }} >
+                        <ChakraLink 
+                            key={item?.id} 
+                            w="100%" 
+                            m={0} 
+                            p={0} 
+                            mt={1} 
+                            bg="transparent" 
+                            style={{ textDecoration: "none" }} 
+                            onClick={() => handleOpenModal(item)}
+                        >
                             <Flex 
                                 w="100%" 
                                 direction={isMobile ? "column" : "row"} 
@@ -101,7 +141,7 @@ export default function Dashboard({ schedule }: DashboardProps ){ //Criamos uma 
                 onOpen={onOpen}
                 onClose={onClose}
                 data={service} //Iremos pegar o data e inserir ele dentro de uma useState para que possamos renderizarlo aqui
-                finishService={ async () => {} }
+                finishService={  () => handleFinish(service?.id) }
             />
 
         
