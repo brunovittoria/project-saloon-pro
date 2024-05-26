@@ -333,3 +333,13 @@ Iremos fazer uma conditional rendering dependendo do tipo de usuario e sua assin
 
 Iremos trabalhar no seguinte path: pages > packs
 
+##########################################
+
+#30 OTIMIZANDO TEMA
+
+Dependendo do navegador, ou ate mesmo se esta em aba anonima o tema do CHAKRAUI pode MUDAR, portanto agora atualizar para que fique com um determinado estilo de forma FIXA.
+
+Definimos dentro do nosso App.tsx o globals e passamos ele para nosso theme
+
+Ao assumir estilos globais, se algo dentro do app pegar esse estilo e vc nao quiser esse estilo, basta modificar naquele elemento o estilo.
+

@@ -89,7 +89,7 @@ export default function Dashboard({ schedule }: DashboardProps ){ //Criamos uma 
                         </Heading>
 
                         <Link href="/new">
-                            <Button>Registrare</Button>
+                            <Button >Registrare</Button>
                         </Link>
                     </Flex>
 

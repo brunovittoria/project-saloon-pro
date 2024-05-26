@@ -93,7 +93,7 @@ export default function EditHaircut({ subscription, services}: EditServiceProps)
                         mb={isMobile ? 4 : 0}
                     >
                         <Link href="/servicos">
-                            <Button mr={3} p={4} display="flex" alignItems="center" justifyContent="center">
+                            <Button mr={3} p={4} display="flex" alignItems="center" justifyContent="center" color="#FFF" bg="barber.400" _hover={{ background: 'gray.700'}}>
                                 <FiChevronLeft size={24} color="#FFF"/>
                                 Torna
                             </Button>

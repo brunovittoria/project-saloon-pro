@@ -56,7 +56,7 @@ export default function NewService({ subscription, count }: NewServiceProps){ //
 
                     <Flex mb={isMobile ? 4 : 0} direction={isMobile ? "column" : "row"} w="100%" align={isMobile ? "flex-start" : "center"}>
                         <Link href="/servicos">
-                            <Button color="#FFF" bg="barber.400" p={4} display="flex" alignItems="center" justifyItems="center" mr={4}>
+                            <Button color="#FFF" bg="barber.400" p={4} display="flex" alignItems="center" justifyItems="center" mr={4} _hover={{ background: 'gray.700'}}>
                                 <FiChevronLeft size={24} color="#FFF"/>
                                 Torna
                             </Button>
