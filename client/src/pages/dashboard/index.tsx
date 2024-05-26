@@ -84,7 +84,7 @@ export default function Dashboard({ schedule }: DashboardProps ){ //Criamos uma 
                 <Flex direction="column" align="flex-start" justify="flex-start">
 
                     <Flex w="100%" direction="row" align="center" justify="flex-start">
-                        <Heading fontSize="3XL" mt={4} mr={4}>
+                        <Heading fontSize={isMobile ? "28px" : "3xl"} mt={4} mb={4} mr={4} color="orange.900">
                             Benvenuto al Dashboard
                         </Heading>
 

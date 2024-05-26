@@ -6,7 +6,8 @@ import {
     Heading,
     Box,
     Input,
-    Button
+    Button,
+    useMediaQuery
 } from '@chakra-ui/react'
 import { Sidebar } from '../../components/sidebar'
 import Link from 'next/link'
@@ -31,6 +32,8 @@ export default function Profile({ user, premium }: ProfileProps){
 
     const [name, setName] = useState(user && user?.name)        //Como queremos pegar esse valor do BE nao inicializamos ele vazio
     const [adress, setAdress] = useState(user && user?.adress)  //O ? é so um operador do JS que caso ele vir vazio ira manter vazio
+
+    const [isMobile] = useMediaQuery("(max-width: 500px)")
 
     async function handleLogout(){
         await logoutUser()
@@ -66,7 +69,7 @@ export default function Profile({ user, premium }: ProfileProps){
                 <Flex direction="column" alignItems="flex-start" justifyContent="flex-start">
 
                     <Flex w="100%" direction="row" alignItems="center" justifyContent="flex-start">
-                        <Heading fontSize="3x1" mt={4} mb={4} mr={4} color="orange.900">Mio Account</Heading>
+                        <Heading fontSize={isMobile ? "28px" : "3xl"} mt={4} mb={4} mr={4} color="orange.900">Mio Account</Heading>
                     </Flex>
 
                     <Flex pt={8} pb={8} background="barber.400" maxH="700px" w="100%" direction="column" alignItems="center" justifyContent="center">
