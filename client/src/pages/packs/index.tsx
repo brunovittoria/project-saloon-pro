@@ -10,7 +10,14 @@ import Head from 'next/head'
 
 import { Sidebar } from '../../components/sidebar'
 
-export default function Planos(){
+import { canSSRAuth } from '../../utils/canSSRAuth'
+import { setupAPIClient } from '../../services/api'
+
+interface PlanoProps{
+    premium: boolean
+}
+
+export default function Planos( {premium} : PlanoProps){
     const [isMobile] = useMediaQuery('(max-width: 500px)')
 
     return(
@@ -56,21 +63,42 @@ export default function Planos(){
                             </Heading>
 
                             <Text fontWeight="medium" ml={4} mb={2}>Inserire servizi Ilimitati.</Text>
+                            <Text fontWeight="medium" ml={4} mb={2}>Notifica appuntamento automatica su whatsapp per i tuoi clienti .</Text>
                             <Text fontWeight="medium" ml={4} mb={2}>Crea Modelli Ilimitati.</Text>
                             <Text fontWeight="medium" ml={4} mb={2}>Modificare servizi.</Text>
                             <Text fontWeight="medium" ml={4} mb={2}>Riceverai Aggiornamenti del software.</Text>
                             <Text fontWeight="medium" ml={4} mb={2}>Collegamento della agenda con google calendar.</Text>
                             <Text fontWeight="medium" ml={4} mb={2}>Modificare dati del profilo.</Text>
-                            <Text fontWeight="bold"   ml={4} mb={2} fontSize={"2xl"}>€ 19.97</Text>
+                            <Text fontWeight="medium" ml={4} mb={2}>Gestione Team</Text>
+                            <Text fontWeight="medium" ml={4} mb={2}>Dashboard Fatturato</Text>
+                            <Text fontWeight="bold"   ml={4} mb={2} fontSize={"2xl"} color="#31fb6a">€ 19.97</Text>
 
                             <Button
-                                bg="button.cta"
+                                bg={premium ? "transparent" : "button.cta"}
                                 m={2}
                                 color="white"
                                 onClick={() => {}}
+                                disabled={premium}
                             >
-                                DIVENTA PREMIUM
+                                {premium ? (
+                                    "SEI GIA PREMIUM!"
+                                ) : (
+                                    "DIVENTA PREMIUM"
+                                )}
                             </Button>
+
+                            {premium && (
+                                <Button
+                                    m={2}
+                                    bg="white"
+                                    color="barber.900"
+                                    fontWeight="bold"
+                                    onClick={ () => {}}
+                                >
+                                    CAMBIA ABBONAMENTO
+                                </Button>
+                            )}
+
                         </Flex>
                     </Flex>
 
@@ -80,3 +108,30 @@ export default function Planos(){
         </>
     )
 }
+
+export const getServerSideProps = canSSRAuth( async (ctx) => {
+
+    try{
+
+        const apiClient = setupAPIClient(ctx)
+        const response = await apiClient.get('/me')
+
+        return {
+            props: {
+                premium: response.data?.subscriptions?.status === 'active' ? true : false
+            }
+        }
+
+    }catch(err){
+        console.log(err)
+
+        return{
+            redirect:{
+                destination: '/dashboard',
+                permanent: false
+            }
+        }
+
+    }
+
+})

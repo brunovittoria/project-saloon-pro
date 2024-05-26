@@ -324,3 +324,12 @@ Dentro do folder components criamos nossa MODAL
 Vamos criar a tela quando o usuario clica no BTN "MUDAR PLANOS"
 
 Iremos trabalhar no seguinte path: pages > packs
+
+##########################################
+
+#29 VERIFICANDO ASSINATURA USER
+
+Iremos fazer uma conditional rendering dependendo do tipo de usuario e sua assinatura.
+
+Iremos trabalhar no seguinte path: pages > packs
+
