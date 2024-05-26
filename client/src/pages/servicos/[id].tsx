@@ -156,7 +156,7 @@ export default function EditHaircut({ subscription, services}: EditServiceProps)
 
                             { subscription?.status !== "active" && (
                                 <Flex direction="row" align="center" justify="center">
-                                    <Link href="/planos">
+                                    <Link href="/packs">
                                         <Text fontWeight="bold" mr={1} color="#31fb6a">
                                             Diventa Premium
                                         </Text>

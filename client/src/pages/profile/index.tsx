@@ -113,7 +113,7 @@ export default function Profile({ user, premium }: ProfileProps){
                                     Piano {premium ? "Premium" : "Gratis"}
                                 </Text>
 
-                                <Link href="/planos">
+                                <Link href="/packs">
                                     <Box 
                                         cursor="pointer" 
                                         p={1} 

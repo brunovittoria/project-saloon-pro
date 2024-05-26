@@ -317,4 +317,10 @@ Para fazer isso vamos ate o file pages > dashboard >index.tsx
 
 Dentro do folder components criamos nossa MODAL
 
+##########################################
 
+#28 CRIANDO PAGINA assinatura
+
+Vamos criar a tela quando o usuario clica no BTN "MUDAR PLANOS"
+
+Iremos trabalhar no seguinte path: pages > packs
