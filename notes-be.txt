@@ -318,4 +318,21 @@ E por final testamos
 
 ##########################################
 
-#18 FIM DO BACKEND
+
+
+/################# STRIPE #################\
+
+Aqui iremos fazer o passo a passo para integrar nosso sistema com o GATEWAY STRIPE
+
+LOGAR NA CONTA DO STRIPE E SEGUIR PASSO A PASSO
+
+Instalar no backend:
+
+npm i stripe
+
+Agora criamos um file dentro de UTILS: STRIPE.TS
+
+Pegamos nossa APIKEY e colocamos no file: .env
+
+
+PAREI NO MIN 9 (CRIACAO DE ROTAS)
