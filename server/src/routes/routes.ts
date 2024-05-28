@@ -16,6 +16,8 @@ import { NewScheduleController }        from '../controllers/schedule/NewSchedul
 import { ListScheduleController }       from '../controllers/schedule/ListScheduleController'
 import { FinishScheduleController }     from '../controllers/schedule/FinishScheduleController'
 
+import { SubController }                from '../controllers/subscription/SubController'
+
 const router = Router()
 
 
@@ -37,5 +39,8 @@ router.get('/service/detail', isAuthenticated, new DetailWorkController().handle
 router.post('/schedule', isAuthenticated, new NewScheduleController().handle)       //Rota para cadastrar novo agendamento
 router.get('/schedule', isAuthenticated, new ListScheduleController().handle)       //Rota para listar todos os agendamentos
 router.delete('/schedule', isAuthenticated, new FinishScheduleController().handle)  //Rota para deletar o serviço uma vez que for finalizado
+
+// ---- ROTAS PAGAMENTOS ---- //
+router.post('/subscribe', isAuthenticated, new SubController().handle)              //
 
 export { router }

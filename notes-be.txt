@@ -334,5 +334,8 @@ Agora criamos um file dentro de UTILS: STRIPE.TS
 
 Pegamos nossa APIKEY e colocamos no file: .env
 
+Agora criamos dentro do nosso services o folder subscriptions
 
-PAREI NO MIN 9 (CRIACAO DE ROTAS)
+Agora criamos o controller subscription > SubController.ts
+
+Por ultimo agora criamos nossa rota
