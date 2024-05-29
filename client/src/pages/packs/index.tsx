@@ -12,6 +12,7 @@ import { Sidebar } from '../../components/sidebar'
 
 import { canSSRAuth } from '../../utils/canSSRAuth'
 import { setupAPIClient } from '../../services/api'
+import { getStripeJs } from '../../services/stripe-js'
 
 interface PlanoProps{
     premium: boolean
@@ -19,6 +20,27 @@ interface PlanoProps{
 
 export default function Planos( {premium} : PlanoProps){
     const [isMobile] = useMediaQuery('(max-width: 500px)')
+
+    const handleSubscribe = async () => {
+        //Barramos o usuario caso ele ja seja premium e tente pagar dnv
+        if(premium){
+            return
+        }
+
+        try{
+            const apiClient = setupAPIClient();
+            const response = await apiClient.post('/subscribe')
+
+            const { sessionId } = response.data //Pegamos a sessionId que o nosso backend nos devolve depois que executamos o post acima
+
+            const stripe = await getStripeJs();
+            await stripe.redirectToCheckout({ sessionId: sessionId})    //Para criar a sessao de checkout mandamos a sessionId AQUI
+
+        }catch(err){
+            console.error(err)
+        }
+
+    }
 
     return(
         <>
@@ -77,7 +99,7 @@ export default function Planos( {premium} : PlanoProps){
                                 bg={premium ? "transparent" : "button.cta"}
                                 m={2}
                                 color="white"
-                                onClick={() => {}}
+                                onClick={handleSubscribe}
                                 disabled={premium}
                             >
                                 {premium ? (

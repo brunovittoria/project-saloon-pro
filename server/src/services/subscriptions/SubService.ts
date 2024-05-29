@@ -51,7 +51,7 @@ class SubService {
         // 4° Vamos inicializar nosso checkout de pagamentos
         const stripeCheckoutSession = await stripe.checkout.sessions.create({
             customer: stripeCustomerId,
-            payment_method_types: ["paypal", "card"],
+            payment_method_types: ["card"],
             billing_address_collection: "required",         //Info de address do user
             line_items: [                                   //info do nosso product
                 { price: process.env.STRIPE_PRICE, quantity: 1}

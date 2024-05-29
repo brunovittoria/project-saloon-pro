@@ -38,4 +38,6 @@ Vamos testar lo diretamente em nosso FE, mas pra isso devemos instalarlo em noss
 
 Pegamos nossa apiKey e colocamos no nosso .env.local do FE
 
-Agora em nosso FE criamos dentro a pasta services um file stripe-js.ts que é a cofiguraçao do STRIPE no FE
+Agora em nosso FE criamos dentro a pasta services um file stripe-js.ts que é a cofiguraçao do STRIPE no FE.
+
+Posteriormente devemos criar nossa funçao para fazer o HANDLE ao clicar pra virar premium
