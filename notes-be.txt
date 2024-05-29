@@ -318,36 +318,3 @@ E por final testamos
 
 ##########################################
 
-
-
-/################# STRIPE #################\
-
-Aqui iremos fazer o passo a passo para integrar nosso sistema com o GATEWAY STRIPE
-
-#01 SETUP INICIAL
-
-LOGAR NA CONTA DO STRIPE E SEGUIR PASSO A PASSO
-
-Instalar no backend:
-
-npm i stripe
-
-Agora criamos um file dentro de UTILS: STRIPE.TS
-
-Pegamos nossa APIKEY e colocamos no file: .env
-
-Agora criamos dentro do nosso services o folder subscriptions
-
-Agora criamos o controller subscription > SubController.ts
-
-Por ultimo agora criamos nossa rota
-
-##########################################
-
-#02 CRIANDO ROTAS PAGAMENTOS
-
-Agora criamos um produto dentro do stripe 
-
-Apos criar o produto no catalogo, pegamos o id desse produto e setamos no file .ENV
-
-Feito isso vamos construir a logica no nosso SubController
