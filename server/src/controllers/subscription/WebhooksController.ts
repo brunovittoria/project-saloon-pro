@@ -2,6 +2,8 @@ import { Request, Response } from "express";
 import Stripe from "stripe";
 import { stripe } from '../../utils/stripe'
 
+import { manageSubscription } from "../../utils/manageSubs";
+
 class WebhooksController {
     async handle(request: Request, response: Response){
         let event: Stripe.Event = request.body; //Aqui estamos falando que vamos receber do STRIPE essa resposta em nosso BODY
@@ -28,14 +30,24 @@ class WebhooksController {
 
             case 'customer.subscription.deleted':
                 //Caso cancele assinatura do user vamos cancelar-la
+                const payment = event.data.object as Stripe.Subscription //Pegamos o pagamento e setamos em uma var e tipamos ele pro TS
+                //Agora chamamos nossa funçao "Mae" que gerencia os varios casos do nosso SWITCH
+
+                await manageSubscription(payment.id, payment.customer.toString(), false, true)
                 break;
 
             case 'customer.subscription.updated':
                 //Caso tenha alguma atualizaçao de assinatura
+                const paymentIntent = event.data.object as Stripe.Subscription //Pegamos o pagamento e setamos em uma var e tipamos ele pro TS
+
+                await manageSubscription(paymentIntent.id, paymentIntent.customer.toString(), false)
                 break;
 
             case 'checkout.session.completed':
                 //Criar a assinatura que foi paga com sucesso
+                const checkoutSession = event.data.object as Stripe.Checkout.Session //Aqui tipamos de forma diferente
+
+                await manageSubscription(checkoutSession.subscription.toString(), checkoutSession.customer.toString(), true)
                 break;
 
             case 'checkout.session.expired':

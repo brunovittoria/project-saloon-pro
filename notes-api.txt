@@ -73,3 +73,21 @@ Em nosso file .env criamos uma variavel STRIPE_WEBHOOK_SECRET para nosso endpoin
 https://dashboard.stripe.com/webhooks/create?endpoint_location=local
 
 Agora criamos dentro do nosso controller nosso WEBHOOKS
+
+Para nosso controller do webhooks nao iremos criar um servico na pasta services mas na pasta utils. manageSubs.ts
+
+Dentro do manageSubs.ts iremos fazer todas as op de cadastrar no banco, atualizar e deletar assinatura do USER
+
+Uma vez criado esse file manageSubs.ts, importamos ele para o WebhooksController.ts para fazer a gestao das assinaturas
+
+Agora que criamos nosso file que ira gerenciar as subs vamos criar a rota!
+
+
+Para testar nosso WEBHOOK devemos seguir os seguintes passos:
+
+1° Abrir um novo terminal
+2° Rodar comando: stripe listen --forward-to localhost:3333/webhooks (Que no caso é a rota webhooks do BE)
+3° Rodar projeto e usar cartao de teste pra pagar: 4x "4242"
+4° Ao finalizar a compra de teste o WEBHOOK envia as requisicoes feitas no TERMINAL
+
+
