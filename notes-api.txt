@@ -41,3 +41,35 @@ Pegamos nossa apiKey e colocamos no nosso .env.local do FE
 Agora em nosso FE criamos dentro a pasta services um file stripe-js.ts que é a cofiguraçao do STRIPE no FE.
 
 Posteriormente devemos criar nossa funçao para fazer o HANDLE ao clicar pra virar premium
+
+##########################################
+
+#04 WEBHOOKS
+
+Aqui iremos tratar a logica no caso em que um pagamento da certo ou errado.
+
+Oque é webhook? E quando o stripe ou outro gateway envia uma resposta para nosso software, ex: 
+
+Usuario faz um pagamento no stripe (Mandamos um POST do nosso software) -----> 
+
+STRIPE response com um POST para o nosso software falando oque houve, se deu certo ou nao.
+
+Para testar localmente os WEBHOOKS, vamos simular localmente: 
+
+Use a Stripe CLI para simular eventos da Stripe no seu ambiente local ou saiba mais sobre Webhooks.
+
+https://docs.stripe.com/stripe-cli
+
+Apos baixar o file EXE do stripe abrimos ele e entao vai abrir o terminal, dai executamos os seguintes comandos: 
+
+stripe login
+
+Agora vamos encaminhar eventos ao nosso webhook, pra fazer isso devemos criar uma nova rota.
+
+dentro de controllers > subscription > WebhooksController.ts
+
+Em nosso file .env criamos uma variavel STRIPE_WEBHOOK_SECRET para nosso endpoint de teste  (Esse endpoint vem fornecido aqui: )
+
+https://dashboard.stripe.com/webhooks/create?endpoint_location=local
+
+Agora criamos dentro do nosso controller nosso WEBHOOKS
