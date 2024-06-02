@@ -42,6 +42,27 @@ export default function Planos( {premium} : PlanoProps){
 
     }
 
+    async function handleCreatePortal(){
+
+        try{
+
+            if(!premium){
+                return;
+            }
+
+            const apiClient = setupAPIClient()
+            const response = await apiClient.post("/create-portal")
+
+            const { sessionId } = response.data
+
+            window.location.href = sessionId //Pegamo a aba em que o usuario se encontra no momento e mandamos ele para uma nova aba com a sessao do portal dele
+
+        }catch(err){
+            console.error(err)
+        }
+
+    }
+
     return(
         <>
             <Head>
@@ -115,7 +136,7 @@ export default function Planos( {premium} : PlanoProps){
                                     bg="white"
                                     color="barber.900"
                                     fontWeight="bold"
-                                    onClick={ () => {}}
+                                    onClick={handleCreatePortal}
                                 >
                                     CAMBIA ABBONAMENTO
                                 </Button>

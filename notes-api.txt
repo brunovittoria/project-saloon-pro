@@ -102,6 +102,8 @@ Fizemos um teste de cancelar no stripe a assinatura para ver se o terminal com o
 
 #05 WEBHOOKS (ALTERANDO ASSINATURA)
 
+Essa funcionalidade ira servir para que o usuario possa mudar a assinatura dele no portal do STRIPE, atualizar pagamentos e etc...
+
 Vamos ate o STRIPE e vamos customizar no CHECKOUT o portal do nosso app.
 
 Para isso iremos criar os controllers e services.
@@ -109,3 +111,9 @@ Para isso iremos criar os controllers e services.
 controller > subscription > CreatePortalController.ts
 services > CreatePortalService.ts
 routes > Nova rota inserida para o portal
+
+##########################################
+
+#06 WEBHOOKS (VALIDANDO WEBHOOK)
+
+Iremos construir uma validaçao para ver se quem esta enviando os dados pra gente é o stripe mesmo ou tem alguem por tras querendo burlar
