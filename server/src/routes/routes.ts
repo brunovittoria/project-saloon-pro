@@ -17,6 +17,7 @@ import { FinishScheduleController }     from '../controllers/schedule/FinishSche
 
 import { SubController }                from '../controllers/subscription/SubController'
 import { WebhooksController }           from '../controllers/subscription/WebhooksController'
+import { CreatePortalController }       from '../controllers/subscription/CreatePortalController'
 
 import { isAuthenticated }              from '../middlewares/isAuthenticated'
 
@@ -45,6 +46,6 @@ router.delete('/schedule', isAuthenticated, new FinishScheduleController().handl
 // ---- ROTAS PAGAMENTOS ---- //
 router.post('/subscribe', isAuthenticated, new SubController().handle)              //Rota para criar uma assinatura no stripe do usuario
 router.post('/webhooks', new WebhooksController().handle)                           //Rota que executa diversas açoes dependendo da resposta de webHook do STRIPE
-
+router.post('/create-portal', isAuthenticated, new CreatePortalController().handle) //Rota para criar portal do usuer? 
 
 export { router }
