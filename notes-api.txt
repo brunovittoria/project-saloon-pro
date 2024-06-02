@@ -90,6 +90,16 @@ Para testar nosso WEBHOOK devemos seguir os seguintes passos:
 3° Rodar projeto e usar cartao de teste pra pagar: 4x "4242"
 4° Ao finalizar a compra de teste o WEBHOOK envia as requisicoes feitas no TERMINAL
 
-PUSHAR MUDANCAS NO GIT!!
+
+##########################################
+
+#04 WEBHOOKS (FUNCAO CANCEL ASSINATURA)
+
+Fizemos um teste de cancelar no stripe a assinatura para ver se o terminal com o webhook, app e DB respondem corretamente. E passou tudo corretamente nos testes.
+
+
+##########################################
+
+#05 WEBHOOKS (ALTERANDO ASSINATURA)
 
 
