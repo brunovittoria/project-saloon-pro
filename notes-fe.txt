@@ -343,3 +343,6 @@ Definimos dentro do nosso App.tsx o globals e passamos ele para nosso theme
 
 Ao assumir estilos globais, se algo dentro do app pegar esse estilo e vc nao quiser esse estilo, basta modificar naquele elemento o estilo.
 
+##########################################
+
+#31 CRIANDO HOME LANDING PAGE

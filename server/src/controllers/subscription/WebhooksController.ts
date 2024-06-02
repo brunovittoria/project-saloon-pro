@@ -8,22 +8,15 @@ class WebhooksController {
     async handle(request: Request, response: Response){
         let event: Stripe.Event = request.body; //Aqui estamos falando que vamos receber do STRIPE essa resposta em nosso BODY
     
-        let endpointSecret: 'whsec_62144c8284459cedd422e3388c7f7b46263c449f53d10e64bf40c0674eacd201'
+        const signature = request.headers['stripe-signature'] //Pegamos a assinatura/retorno do stripe
+        let endpointSecret = 'whsec_62144c8284459cedd422e3388c7f7b46263c449f53d10e64bf40c0674eacd201'
 
-        if(endpointSecret){ //Se tiver o endpoint secret iremos pegar oq o stripe ta mandando
-            const signature = request.headers['stripe-signature'] //Pegamos a assinatura/retorno do stripe
+        try{
+            //Agora mandamos essas informaçoes no body  para o stripe
+            event = stripe.webhooks.constructEvent(request.body,signature,endpointSecret)
 
-            try{
-                //Agora mandamos essas informaçoes no body  para o stripe
-                event = stripe.webhooks.constructEvent(
-                    request.body,
-                    signature,
-                    endpointSecret
-                )
-            }catch(err){
-                console.error("Webhook signature failed", err.message)
-                return response.sendStatus(400)
-            }
+        }catch(err){
+            return response.status(400).send(`Webhook error: ${err.message}`)
         }
 
         switch(event.type){     //Aqui iremos tratar as varias possibilidades que o STRIPE pode nos retornar, como pgto recusado, pendente e etc...

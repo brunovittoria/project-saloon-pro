@@ -1,4 +1,4 @@
-import { Router, Request, Response }    from 'express'
+import express, { Router, Request, Response } from 'express'
 import { CreateUserController }         from '../controllers/user/CreateUserController'
 import { AuthUserController }           from '../controllers/user/AuthUserController'
 import { DetailUserController }         from '../controllers/user/DetailUserController'
@@ -45,7 +45,7 @@ router.delete('/schedule', isAuthenticated, new FinishScheduleController().handl
 
 // ---- ROTAS PAGAMENTOS ---- //
 router.post('/subscribe', isAuthenticated, new SubController().handle)              //Rota para criar uma assinatura no stripe do usuario
-router.post('/webhooks', new WebhooksController().handle)                           //Rota que executa diversas açoes dependendo da resposta de webHook do STRIPE
+router.post('/webhooks', express.raw({ type: 'application/json'}),new WebhooksController().handle)                           //Rota que executa diversas açoes dependendo da resposta de webHook do STRIPE
 router.post('/create-portal', isAuthenticated, new CreatePortalController().handle) //Rota para criar portal do usuer? 
 
 export { router }

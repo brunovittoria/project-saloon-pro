@@ -7,7 +7,14 @@ import cors from 'cors'
 
 const app = express()
 
-app.use(express.json())
+app.use((req, res, next) => {
+    if(req.originalUrl === '/webhooks'){
+        next()
+    }else{
+        express.json()(req, res, next)
+    }
+})
+
 app.use(cors()) //Assim liberamos pra qualquer um fazer e enviar req
 
 app.use(router)

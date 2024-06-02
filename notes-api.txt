@@ -116,4 +116,8 @@ routes > Nova rota inserida para o portal
 
 #06 WEBHOOKS (VALIDANDO WEBHOOK)
 
-Iremos construir uma validaçao para ver se quem esta enviando os dados pra gente é o stripe mesmo ou tem alguem por tras querendo burlar
+Iremos construir uma validaçao para ver se quem esta enviando os dados pra gente é o stripe mesmo ou tem alguem por tras querendo burlar.
+
+Vamos fazer isso no file server.ts. Neste file mudamos o app.use pois o stripe quer os dados brutos se nos formos para a documentaçao iremos ver que o stripe pede para usarmos o tipo de dados: express.raw
+
+Alem de alterar como mandamos os dados, devemos receber tambem os dados brutos pelo webhook, portanto vamos alterar nas rotas do webhook
