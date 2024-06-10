@@ -1,9 +1,10 @@
 import Head from "next/head"
-import { Text, Button, Image } from '@chakra-ui/react'
+import { Text, Button } from '@chakra-ui/react'
+import Image from 'next/image'
 import Link from "next/link"
 import { ArrowUpDown, Timer, Workflow } from 'lucide-react'
 
-import Feature from "@/components/feature/feature"
+import Feature from "@/components/feature"
 
 export default function Home(){
   return(
