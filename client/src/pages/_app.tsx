@@ -7,6 +7,7 @@ import '../assets/globals.css'
 const styles = {
   global:{
     body:{
+      bg: "black",
       color: 'gray.100'
     },
     a:{

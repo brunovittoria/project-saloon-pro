@@ -346,3 +346,11 @@ Ao assumir estilos globais, se algo dentro do app pegar esse estilo e vc nao qui
 ##########################################
 
 #31 CRIANDO HOME LANDING PAGE
+
+Resumidamente copiei todos componentes, UIS e pagina desse repo: https://github.com/AtotheY/saas-landingpage
+
+Depois tive que instalar as dependencias necessarias
+
+Fiz configuracoes no meu arquivo tailwind.config.ts
+
+Criei um arquivo global e importei ele em meu _app.tsx para integrar o ChakraUI + SHADCN
