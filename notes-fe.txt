@@ -354,3 +354,6 @@ Depois tive que instalar as dependencias necessarias
 Fiz configuracoes no meu arquivo tailwind.config.ts
 
 Criei um arquivo global e importei ele em meu _app.tsx para integrar o ChakraUI + SHADCN
+
+
+########TODO : ALINHAR TEXTO PLANOS NO CENTRO
