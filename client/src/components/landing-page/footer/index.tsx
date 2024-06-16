@@ -23,7 +23,7 @@ export function Footer() {
             target="_blank"
             className="pointer block w-fit flex-1"
           >
-            <Typography variant="p" className="w-max">
+            <Typography variant="p" className="w-max" style={{ color: "#fff"}}>
               Book a demo
             </Typography>
           </Link>
@@ -31,7 +31,7 @@ export function Footer() {
             href="/terms-of-service"
             className="pointer block w-fit flex-1"
           >
-            <Typography variant="p" className="w-max">
+            <Typography variant="p" className="w-max" style={{ color: "#fff"}}>
               Terms of service
             </Typography>
           </Link>
@@ -39,7 +39,7 @@ export function Footer() {
             href="/privacy-policy"
             className="pointer block w-fit"
           >
-            <Typography variant="p">
+            <Typography variant="p" style={{ color: "#fff"}}>
               Privacy Policy
             </Typography>
           </Link>

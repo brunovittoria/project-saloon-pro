@@ -17,10 +17,15 @@ export default function Home(){
       <Head>
         <title>Saloon Pro - Il tuo sistema completo</title>   {/*Aqui usamos o titulo para melhorar nosso SEO*/}
       </Head>
+      <div className="flex flex-1 justify-center w-full">
+        <Header />
+      </div>
       <div
       className="flex flex-col h-full md:py-36 md:px-32 pt-11 pb-24 px-8
         w-full items-center text-center gap-12"
     >
+      
+
       <div className="flex flex-col gap-6 items-center">
         <Typography className="max-w-2xl" variant="h1">
           Information you need during on-call emergencies
@@ -100,6 +105,8 @@ export default function Home(){
         </div>
       </div>
     </div>
+
+    <Footer/>
     </>
   )
 }

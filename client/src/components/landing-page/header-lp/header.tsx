@@ -46,13 +46,13 @@ export function Header({ className }: SidebarProps) {
         href="https://map.sistilli.dev/public/coding/SaaS+Boilerplate"
         target="_blank"
       >
-        <Typography variant="p">Login</Typography>
+        <Typography variant="p" style={{ color: "#fff"}}>Login</Typography>
       </Link>
       <Link
         href="https://map.sistilli.dev/public/coding/SaaS+Boilerplate"
         target="_blank"
       >
-        <Button size="tiny" color="ghost">
+        <Button size="tiny" color="ghost" style={{ backgroundColor: "#fff"}}>
           <Typography variant="p" className="text-black">
             Sign Up
           </Typography>
