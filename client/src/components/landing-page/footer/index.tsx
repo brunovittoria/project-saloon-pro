@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import Typography from '../../components/ui/typography'
+import Typography from '@/components/landing-page/ui/typography'
 
 export function Footer() {
   return (

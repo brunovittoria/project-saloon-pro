@@ -1,5 +1,5 @@
 import React from 'react'
-import Typography from '@/components/ui/typography'
+import Typography from '@/components/landing-page/ui/typography'
 
 interface FeatureProps {
     icon: React.ReactNode

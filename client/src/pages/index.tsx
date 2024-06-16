@@ -1,11 +1,15 @@
 import Head from "next/head"
-import { Button } from '@/components/ui/button'
-import Typography from '@/components/ui/typography'
+import { Button } from '@/components/landing-page/ui/button'
+import Typography from '@/components/landing-page/ui/typography'
 import Image from 'next/image'
 import Link from "next/link"
 import { ArrowUpDown, Timer, Workflow } from 'lucide-react'
 
-import Feature from "@/components/feature"
+import { Header } from '../components/landing-page/header-lp/header'
+import { Footer } from '../components/landing-page/footer/index'
+
+
+import Feature from "@/components/landing-page/feature"
 
 export default function Home(){
   return(

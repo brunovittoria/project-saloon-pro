@@ -1,16 +1,16 @@
 'use client'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/landing-page/ui/button'
 import { usePathname } from 'next/navigation'
-import Typography from '@/components/ui/typography'
+import Typography from '@/components/landing-page/ui/typography'
 import {
     Drawer,
     DrawerClose,
     DrawerContent,
     DrawerHeader,
     DrawerTrigger
-} from '@/components/ui/drawer'
+} from '@/components/landing-page/ui/drawer'
 import { MenuIcon, X } from 'lucide-react'
 
 interface SidebarProps
