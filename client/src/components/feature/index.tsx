@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text } from '@chakra-ui/react'
+import Typography from '@/components/ui/typography'
 
 interface FeatureProps {
     icon: React.ReactNode
@@ -20,10 +20,10 @@ const Feature: React.FC<FeatureProps> = ({
         <div className="py-4 px-4 rounded-md border max-w-fit">
             {icon}
         </div>
-        <Text variant="h3">{headline}</Text>
-        <Text variant="p" className="text-minor">
+        <Typography variant="h3">{headline}</Typography>
+        <Typography variant="p" className="text-minor" style={{color: "#fff"}}>
             {description}
-        </Text>
+        </Typography>
         </div>
     )
 }

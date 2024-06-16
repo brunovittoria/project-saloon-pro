@@ -21,7 +21,7 @@ export default function Home(){
         <Typography className="max-w-2xl" variant="h1">
           Information you need during on-call emergencies
         </Typography>
-        <Typography className="max-w-2xl" variant="h5">
+        <Typography className="max-w-2xl" variant="h5" style={{ color: "#fff"}}>
           Quickly link new on-call tickets to similar past
           incidents and their solutions. All directly in
           Slack the moment an incident happens.
@@ -30,7 +30,7 @@ export default function Home(){
           href="https://map.sistilli.dev/public/coding/SaaS+Boilerplate"
           target="_blank"
         >
-          <Button size="tiny" variant="ghost" color="#white">
+          <Button size="tiny" variant="ghost" style={{ color: "#000000", backgroundColor: "#fff"}} >
             {`Get Started`}
           </Button>
         </Link>
@@ -68,7 +68,7 @@ export default function Home(){
           <Typography className="max-w-2xl" variant="h1">
             Instant setup, no custom code
           </Typography>
-          <Typography className="max-w-2xl" variant="p">
+          <Typography className="max-w-2xl" variant="p" style={{ color: "#fff"}}>
             Quickly link new on-call tickets to similar past
             incidents and their solutions. All directly in
             Slack the moment an incident happens.
@@ -89,7 +89,7 @@ export default function Home(){
             href="https://map.sistilli.dev/public/coding/SaaS+Boilerplate"
             target="_blank"
           >
-            <Button size="tiny" variant="ghost">
+            <Button size="tiny" variant="ghost" style={{ color: "#000000", backgroundColor: "#fff"}}>
               {`Book now`}
             </Button>
           </Link>
