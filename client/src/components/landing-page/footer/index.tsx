@@ -2,6 +2,9 @@
 import Link from 'next/link'
 import Typography from '@/components/landing-page/ui/typography'
 
+import Logo from '../../../../public/images/logo.svg'
+import Image from "next/image"
+
 export function Footer() {
   return (
     <footer className="flex h-12 items-center justify-center w-full border-t">
@@ -11,10 +14,7 @@ export function Footer() {
             href="/"
             className="pointer flex items-center"
           >
-            <img src="/logo.svg" className="mr-3" />
-            <Typography className="!text-white !text-base font-medium ">
-              Pandem
-            </Typography>
+            <Image width={110} objectFit="fill" src={Logo} quality={100} alt='Saloon PRO Logo' className="mr-3"/>
           </Link>
         </div>
         <div className="flex max-w-fit items-center gap-x-4">
