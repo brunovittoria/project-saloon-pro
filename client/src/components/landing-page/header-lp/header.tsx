@@ -52,8 +52,8 @@ export function Header({ className }: SidebarProps) {
         href="https://map.sistilli.dev/public/coding/SaaS+Boilerplate"
         target="_blank"
       >
-        <Button size="tiny" color="ghost" style={{ backgroundColor: "#fff"}}>
-          <Typography variant="p" className="text-black">
+        <Button size="tiny" color="ghost" style={{ backgroundColor: "#FBB131"}}>
+          <Typography variant="p" className="text-white">
             Sign Up
           </Typography>
         </Button>
@@ -78,6 +78,7 @@ export function Header({ className }: SidebarProps) {
               <Typography
                 variant="p"
                 className={cn(selected && 'text-primary')}
+                style={{color: "#fefefe"}}
               >
                 {item.title}
               </Typography>

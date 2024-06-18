@@ -8,7 +8,6 @@ import { ArrowUpDown, Timer, Workflow } from 'lucide-react'
 import { Header } from '../components/landing-page/header-lp/header'
 import { Footer } from '../components/landing-page/footer/index'
 
-
 import Feature from "@/components/landing-page/feature"
 
 export default function Home(){
@@ -39,7 +38,7 @@ export default function Home(){
           href="https://map.sistilli.dev/public/coding/SaaS+Boilerplate"
           target="_blank"
         >
-          <Button size="tiny" variant="ghost" style={{ color: "#000000", backgroundColor: "#fff"}} >
+          <Button size="tiny" variant="ghost" className="text-white" style={{ backgroundColor: "#FBB131"}} >
             {`Get Started`}
           </Button>
         </Link>
@@ -98,7 +97,7 @@ export default function Home(){
             href="https://map.sistilli.dev/public/coding/SaaS+Boilerplate"
             target="_blank"
           >
-            <Button size="tiny" variant="ghost" style={{ color: "#000000", backgroundColor: "#fff"}}>
+            <Button size="tiny" variant="ghost" className="text-white" style={{ backgroundColor: "#FBB131" }}>
               {`Book now`}
             </Button>
           </Link>
