@@ -11,6 +11,8 @@ import { Footer } from '../components/landing-page/footer/index'
 import Feature from "@/components/landing-page/feature"
 
 export default function Home(){
+  const phoneNumber = process.env.MY_WPP_NUMBER;
+
   return(
     <>
       <Head>
@@ -90,7 +92,7 @@ export default function Home(){
           </Typography>
           <div>Fissa una call per iniziare con Saloon PRO</div>
           <Link
-            href="https://map.sistilli.dev/public/coding/SaaS+Boilerplate"
+            href={`http://wa.me/+${phoneNumber}`}
             target="_blank"
           >
             <Button size="tiny" variant="ghost" className="text-white" style={{ backgroundColor: "#FBB131" }}>

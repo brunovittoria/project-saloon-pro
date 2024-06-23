@@ -10,6 +10,7 @@ import { useMediaQuery } from '@chakra-ui/react'
 
 export function Footer() {
   const [isMobile] = useMediaQuery('(max-width: 768px)')
+  const phoneNumber = process.env.MY_WPP_NUMBER;
 
   return (
     <footer className="flex h-12 items-center justify-center w-full border-t">
@@ -24,7 +25,7 @@ export function Footer() {
         </div>
         <div className="flex max-w-fit items-center gap-x-4">
           <Link
-            href="https://map.sistilli.dev/public/coding/SaaS+Boilerplate"
+            href={`http://wa.me/+${phoneNumber}`}
             target="_blank"
             className="pointer block w-fit flex-1"
           >
