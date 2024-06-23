@@ -3,7 +3,7 @@ import { Button } from '@/components/landing-page/ui/button'
 import Typography from '@/components/landing-page/ui/typography'
 import Image from 'next/image'
 import Link from "next/link"
-import { ArrowUpDown, Timer, Workflow } from 'lucide-react'
+import { ArrowUpDown, Timer, Workflow, BotMessageSquare, LayoutDashboard, Scissors } from 'lucide-react'
 
 import { Header } from '../components/landing-page/header-lp/header'
 import { Footer } from '../components/landing-page/footer/index'
@@ -27,7 +27,7 @@ export default function Home(){
 
       <div className="flex flex-col gap-6 items-center">
         <Typography className="max-w-2xl" variant="h1">
-          O seu braço direito para a gestao do seu salao
+        Saloon PRO, IL Gestionale per la tua Barberia/Saloon
         </Typography>
         <Typography className="max-w-2xl" variant="h5" style={{ color: "#fff"}}>
           Invia automaticamente messaggi di promemoria su WhatsApp ai clienti una volta che sono stati inseriti nell agenda. Non dimenticare mai un appuntamento importante e assicurati che i tuoi clienti siano sempre informati.
@@ -50,34 +50,32 @@ export default function Home(){
       <div className="flex flex-col md:pt-24 md:gap-36 gap-24 items-center">
         <div className="flex flex-col gap-12 items-center">
           <Typography className="max-w-2xl" variant="h1">
-            Quick solutions, less stress
+            Soluzioni semplici, meno stress
           </Typography>
           <div className="flex md:flex-row flex-col gap-12">
             <Feature
-              icon={<Timer size={24} />}
-              headline="Promemoria automatico su WhatsApp per i clienti"
+              icon={<BotMessageSquare size={24} />}
+              headline="Promemoria Automatico "
               description="Invia automaticamente messaggi di promemoria su WhatsApp ai clienti una volta che sono stati inseriti nell'agenda. Non dimenticare mai un appuntamento importante e assicurati che i tuoi clienti siano sempre informati."
             />
             <Feature
-              icon={<ArrowUpDown size={24} />}
-              headline="Visualizzazione Dashboard di fatturato"
+              icon={<LayoutDashboard size={24} />}
+              headline="Visualizzazione Dashboard"
               description="Accedi a una dashboard completa del tuo fatturato. Visualizza e analizza le entrate del tuo salone in modo semplice e intuitivo, aiutandoti a prendere decisioni informate per far crescere il tuo business."
             />
             <Feature
-              icon={<Workflow size={24} />}
-              headline="Creazione di tipi di tagli/servizi"
+              icon={<Scissors size={24} />}
+              headline="Creazione Servizi"
               description="Crea e personalizza vari tipi di tagli e servizi. Aggiungi facilmente questi servizi all'agenda dei tuoi clienti, assicurando una gestione efficiente e organizzata degli appuntamenti."
             />
           </div>
         </div>
         <div className="flex flex-col gap-6 max-w-2xl items-center">
           <Typography className="max-w-2xl" variant="h1">
-            Instant setup, no custom code
+            Configurazione istantanea, senza codice personalizzato
           </Typography>
           <Typography className="max-w-2xl" variant="p" style={{ color: "#fff"}}>
-            Quickly link new on-call tickets to similar past
-            incidents and their solutions. All directly in
-            Slack the moment an incident happens.
+          Basta accedere alla pagina di registrazione, iscriversi e iniziare con Saloon PRO!
           </Typography>
           <Image
             width={1024}
@@ -88,15 +86,15 @@ export default function Home(){
         </div>
         <div className="flex flex-col gap-6 items-center">
           <Typography className="max-w-2xl" variant="h1">
-            Get in touch
+            Contattaci
           </Typography>
-          <div>Book a demo, or hop on a call</div>
+          <div>Fissa una call per iniziare con Saloon PRO</div>
           <Link
             href="https://map.sistilli.dev/public/coding/SaaS+Boilerplate"
             target="_blank"
           >
             <Button size="tiny" variant="ghost" className="text-white" style={{ backgroundColor: "#FBB131" }}>
-              {`Book now`}
+              {`Prenota ora`}
             </Button>
           </Link>
         </div>
