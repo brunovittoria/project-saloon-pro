@@ -24,7 +24,7 @@ export function Header({ className }: SidebarProps) {
   const items = [
     {
       href: 'https://map.sistilli.dev/public/coding/SaaS+Boilerplate',
-      title: 'Book a demo',
+      title: 'Prenota ora',
       openInNewTab: true
     }
     // { href: '#pricing', title: 'Features' },

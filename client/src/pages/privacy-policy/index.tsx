@@ -5,7 +5,7 @@
             Privacy Policy
         </h1>
         <p className="mb-2">
-            <strong>Last updated:</strong> February 06, 2024
+            <strong>Last updated:</strong> June 23, 2024
         </p>
         <p className="mb-4">
             This Privacy Policy describes Our policies and
@@ -392,10 +392,10 @@
             <li>
                 By email:{' '}
                 <a
-                href="mailto: myemail@gmail.com"
+                href="mailto: grupotrinitydigital@gmail.com"
                 className="text-blue-600 hover:underline"
                 >
-                myemail@gmail.com
+                grupotrinitydigital@gmail.com
                 </a>
             </li>
             </ul>

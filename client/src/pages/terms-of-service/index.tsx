@@ -2,10 +2,10 @@
         return (
         <div className="p-6 rounded-md shadow">
             <h1 className="text-3xl font-bold mb-4">
-            Terms of Service
+            Termini di servizio
             </h1>
             <p className="mb-2">
-            <strong>Last updated:</strong> February 06, 2024
+            <strong>Last updated:</strong> June 23, 2024
             </p>
             <p className="mb-4">
             Please read these terms and conditions carefully
@@ -297,10 +297,10 @@
                 <li>
                 By email:{' '}
                 <a
-                    href="mailto:myemail@gmail.com"
+                    href="grupotrinitydigital@gmail.com"
                     className="text-blue-600 hover:underline"
                 >
-                    myemail@gmail.com
+                    grupotrinitydigital@gmail.com
                 </a>
                 </li>
             </ul>
