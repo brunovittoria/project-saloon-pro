@@ -35,11 +35,11 @@ export default function Home(){
           Invia automaticamente messaggi di promemoria su WhatsApp ai clienti una volta che sono stati inseriti nell agenda. Non dimenticare mai un appuntamento importante e assicurati che i tuoi clienti siano sempre informati.
         </Typography>
         <Link
-          href="https://map.sistilli.dev/public/coding/SaaS+Boilerplate"
+          href="/register"
           target="_blank"
         >
           <Button size="tiny" variant="ghost" className="text-white" style={{ backgroundColor: "#FBB131"}} >
-            {`Get Started`}
+            {`Inizia Ora`}
           </Button>
         </Link>
         <Image
