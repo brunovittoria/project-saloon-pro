@@ -27,7 +27,7 @@ export default function Home(){
 
       <div className="flex flex-col gap-6 items-center">
         <Typography className="max-w-2xl" variant="h1">
-        Saloon PRO, IL Gestionale per la tua Barberia/Saloon
+        Saloon PRO, IL Gestionale per il tuo Saloon
         </Typography>
         <Typography className="max-w-2xl" variant="h5" style={{ color: "#fff"}}>
           Invia automaticamente messaggi di promemoria su WhatsApp ai clienti una volta che sono stati inseriti nell agenda. Non dimenticare mai un appuntamento importante e assicurati che i tuoi clienti siano sempre informati.
