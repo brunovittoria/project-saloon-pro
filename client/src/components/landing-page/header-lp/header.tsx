@@ -43,14 +43,12 @@ export function Header({ className }: SidebarProps) {
   const getAuthButtons = () => (
     <div className="flex gap-3 items-center">
       <Link
-        href="https://map.sistilli.dev/public/coding/SaaS+Boilerplate"
-        target="_blank"
+        href="/login"
       >
         <Typography variant="p" style={{ color: "#fff"}}>Login</Typography>
       </Link>
       <Link
-        href="https://map.sistilli.dev/public/coding/SaaS+Boilerplate"
-        target="_blank"
+        href="/register"
       >
         <Button size="tiny" color="ghost" style={{ backgroundColor: "#FBB131"}}>
           <Typography variant="p" className="text-white">
