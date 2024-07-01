@@ -20,7 +20,7 @@ export function Footer() {
             href="/"
             className="pointer flex items-center"
           >
-            <Image width={110} objectFit="fill" src={Logo} quality={100} alt='Saloon PRO Logo' className="mr-3"/>
+            <Image width={70} objectFit="fill" src={Logo} quality={100} alt='Saloon PRO Logo' className="mr-3"/>
           </Link>
         </div>
         <div className="flex max-w-fit items-center gap-x-4">
