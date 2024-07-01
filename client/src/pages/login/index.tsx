@@ -1,7 +1,7 @@
 import Head from "next/head"
 import { Flex, Text, Center, Input, Button } from '@chakra-ui/react'
 import Image from "next/image"
-import Logo from '../../../public/images/logo.svg'
+import Logo from '../../../public/images/logosaloonsvg.svg'
 import Link from "next/link"
 import { useState, useEffect, useContext } from "react"
 

@@ -13,7 +13,7 @@ import {
 } from '@/components/landing-page/ui/drawer'
 import { MenuIcon, X } from 'lucide-react'
 
-import Logo from '../../../../public/images/logo.svg'
+import Logo from '../../../../public/images/logosaloonsvg.svg'
 import Image from "next/image"
 
 interface SidebarProps

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Typography from '@/components/landing-page/ui/typography'
 import { Heart } from 'lucide-react'
 
-import Logo from '../../../../public/images/logo.svg'
+import Logo from '../../../../public/images/logosaloonsvg.svg'
 import Image from "next/image"
 
 import { useMediaQuery } from '@chakra-ui/react'
